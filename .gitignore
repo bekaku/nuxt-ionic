@@ -1,0 +1,16 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
+node
+yarn.lock
+.idea
+android/app/src/main/assets/public/
+ios/App/public/
+.DS_Store
+.npm
+build/Release

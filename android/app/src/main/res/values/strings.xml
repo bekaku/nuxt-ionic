@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Super Synapse</string>
+    <string name="title_activity_main">Super Synapse</string>
+    <string name="package_name">com.grandats.supersynapse</string>
+    <string name="custom_url_scheme">com.grandats.supersynapse</string>
+</resources>

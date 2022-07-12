@@ -1,0 +1,6 @@
+/dist
+/capacitor
+/cordova
+/.nuxt
+/node_modules
+.eslintrc
