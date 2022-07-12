@@ -23,6 +23,7 @@
         :refreshing-text="$t('base.pleaseWait')"
       ></ion-refresher-content>
     </ion-refresher>
+    <button @click="onReplaceUrl('/my/new/path')">test</button>
 
     <template v-for="(item, index) in posts" :key="index">
       <post-item :post="item" :index="index" />
@@ -41,6 +42,7 @@ definePageMeta({
 const { callAxios } = useAxios();
 const { isAppPlatfrom } = useDevice();
 const { getConfig } = useConfig();
+const { onReplaceUrl } = useBase();
 const logDeviceInfo = async () => {
   console.log('NODE_ENV', process.env.NODE_ENV);
   console.log('getConfig > apiBase : ' + getConfig('apiBase'));

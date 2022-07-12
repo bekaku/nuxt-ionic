@@ -16,6 +16,9 @@ export const useBase = () => {
   const onBack = () => {
     router.back();
   };
+  const onReplaceUrl = (url: string = '') => {
+    history.pushState({}, '', url);
+  };
   const WeeGoTo = (link: string, replace?: boolean): void => {
     if (!link) {
       return;
@@ -188,5 +191,6 @@ export const useBase = () => {
     scrollToTop,
     AppFormatDate,
     getCurrentPath,
+    onReplaceUrl,
   };
 };
