@@ -24,7 +24,7 @@
           <img :src="AvatarPlaceHolder128" alt="avatar" />
         </ion-avatar>
         <ion-label>
-          <h3 class="wee-fw-600">Chanavee Bekaku</h3>
+          <h3 class="wee-text-weight-bold">Chanavee Bekaku</h3>
           <p>5 april 2022, 11:30 AM</p>
         </ion-label>
       </ion-item>

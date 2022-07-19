@@ -16,6 +16,8 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/color.scss',
     '~/assets/css/app.scss',
+    '~/assets/css/typography.sass',
+    '~/assets/css/size.sass',
     'animate.css/animate.min.css',
   ],
   // build modules

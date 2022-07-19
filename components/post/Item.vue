@@ -8,7 +8,7 @@
           <ion-img :src="AvatarPlaceHolder128" />
         </ion-avatar>
         <ion-label>
-          <h2 class="wee-fw-600">Chanavee Bekaku</h2>
+          <h2 class="wee-text-weight-bold">Chanavee Bekaku</h2>
           <p>{{ AppFormatDate(post.postDatetime, FORMAT_DATE12) }}</p>
         </ion-label>
 
@@ -16,7 +16,7 @@
       </ion-item>
     </ion-card-header>
 
-    <ion-card-content class="test-border">
+    <ion-card-content>
       <slot name="description">
         <post-content :content="post.content" :post-id="post.id" />
       </slot>
@@ -25,7 +25,7 @@
       </slot>
     </ion-card-content>
     <slot name="action">
-      <post-action />
+      <post-action :post-id="post.id" />
     </slot>
   </ion-card>
 </template>

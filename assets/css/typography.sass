@@ -1,0 +1,93 @@
+// sorry for long line; we need .sass and it doesn't support multi-line list
+$text-weights: (thin: 100, light: 300, regular: 400, medium: 500, bold: 700, bolder: 900) !default
+
+.wee-text-
+  &uppercase
+    text-transform: uppercase
+  &lowercase
+    text-transform: lowercase
+  &capitalize
+    text-transform: capitalize
+
+  &center
+    text-align: center
+  &left
+    text-align: left
+  &right
+    text-align: right
+  &justify
+    text-align: justify
+    hyphens: auto !important
+
+  &italic
+    font-style: italic !important
+  &bold
+    font-weight: bold !important
+
+  &no-wrap
+    white-space: nowrap !important
+
+  &strike
+    text-decoration: line-through
+
+  @each $weight, $value in $text-weights
+    &weight-#{$weight}
+      font-weight: $value !important
+
+small
+  font-size: 80%
+big
+  font-size: 170%
+sub
+  bottom: -.25em
+sup
+  top: -.5em
+
+.wee-text-caption, .text-caption
+  font-size: 0.75em
+
+.wee-text-muted,
+.text-muted
+  color: var(--v-text-muted) !important
+
+.wee-text-white
+  color: #fff !important
+
+.wee-text-black
+  color: var(--v-text-black) !important
+
+.wee-text-smaller
+  font-size: 0.75em !important
+
+  /*class="wee-text-max-2-lines"*/
+.wee-text-max-
+  &1-line
+    overflow: hidden
+    display: -webkit-box
+    text-overflow: ellipsis
+    -webkit-line-clamp: 1
+    -moz-line-clamp: 1
+    -o-line-clamp: 1
+    -webkit-box-orient: vertical
+    -moz-box-orient: vertical
+    -o-box-orient: vertical
+  &2-lines
+    overflow: hidden
+    display: -webkit-box
+    text-overflow: ellipsis
+    -webkit-line-clamp: 2
+    -moz-line-clamp: 2
+    -o-line-clamp: 2
+    -webkit-box-orient: vertical
+    -moz-box-orient: vertical
+    -o-box-orient: vertical
+  &4-lines
+    overflow: hidden
+    display: -webkit-box
+    text-overflow: ellipsis
+    -webkit-line-clamp: 4
+    -moz-line-clamp: 4
+    -o-line-clamp: 4
+    -webkit-box-orient: vertical
+    -moz-box-orient: vertical
+    -o-box-orient: vertical

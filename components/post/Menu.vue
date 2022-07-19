@@ -8,7 +8,7 @@
     @didDismiss="popoverOpen = false"
     trigger-action="click"
   >
-    <ion-content>
+    <ion-content :scroll-y="false">
       <ion-list lines="none">
         <ion-item
           v-for="(item, index) in items"
