@@ -5,11 +5,13 @@
     :show-back-link="false"
     :content-padding="false"
     :avatar="AvatarPlaceHolder128"
-    avatar-width="36"
+    avatar-width="32"
+    hide-header-on-scroll
   >
     <template v-slot:actions-end>
-      <ion-button color="dark" router-link="/settings/appearance">
-        <ion-icon slot="icon-only" :icon="ellipsisVertical"></ion-icon>
+      <base-icon-badge text-color="dark" :icon="notificationsOutline" no="99" />
+      <ion-button color="dark" router-link="/search">
+        <ion-icon slot="icon-only" :icon="searchOutline"></ion-icon>
       </ion-button>
     </template>
     <ion-refresher
@@ -23,15 +25,13 @@
         :refreshing-text="$t('base.pleaseWait')"
       ></ion-refresher-content>
     </ion-refresher>
-    <button @click="onReplaceUrl('/my/new/path')">test</button>
-
     <template v-for="(item, index) in posts" :key="index">
       <post-item :post="item" :index="index" />
     </template>
   </base-layout>
 </template>
 <script setup lang="ts">
-import { ellipsisVertical, chevronDownCircleOutline } from 'ionicons/icons';
+import { searchOutline, notificationsOutline } from 'ionicons/icons';
 import { AvatarPlaceHolder128 } from '@/utils/constant';
 import { PostData } from '@/types/models';
 
@@ -42,7 +42,6 @@ definePageMeta({
 const { callAxios } = useAxios();
 const { isAppPlatfrom } = useDevice();
 const { getConfig } = useConfig();
-const { onReplaceUrl } = useBase();
 const logDeviceInfo = async () => {
   console.log('NODE_ENV', process.env.NODE_ENV);
   console.log('getConfig > apiBase : ' + getConfig('apiBase'));
@@ -161,5 +160,5 @@ const doRefresh = (event: any) => {
 };
 </script>
 <style scoped>
-@import '~/assets/card.css';
+@import '~/assets/css/card.css';
 </style>

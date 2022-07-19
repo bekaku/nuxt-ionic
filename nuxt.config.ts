@@ -13,7 +13,11 @@ export default defineNuxtConfig({
     preset: 'service-worker',
   },
   modules: ['nuxt-ionic'],
-  css: ['~/assets/color.scss', '~/assets/app.scss'],
+  css: [
+    '~/assets/css/color.scss',
+    '~/assets/css/app.scss',
+    'animate.css/animate.min.css',
+  ],
   // build modules
   buildModules: [
     '@nuxtjs/eslint-module',

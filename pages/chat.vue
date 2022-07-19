@@ -259,5 +259,5 @@ onMounted(() => {
 </script>
 <style scoped>
 /* https://codepen.io/sajadhsm/pen/odaBdd */
-@import '~/assets/chat.css';
+@import '~/assets/css/chat.css';
 </style>

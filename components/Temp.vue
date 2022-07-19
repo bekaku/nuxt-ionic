@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ion-margin-vertical">
     <ion-chip
       v-for="(item, index) in items"
       :key="index"

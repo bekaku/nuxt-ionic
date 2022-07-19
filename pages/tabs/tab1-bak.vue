@@ -255,5 +255,5 @@ onMounted(() => {
 });
 </script>
 <style scoped>
-@import '~/assets/card.css';
+@import '~/assets/css/card.css';
 </style>

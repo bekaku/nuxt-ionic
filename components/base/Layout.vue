@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <slot name="toolbar">
-        <ion-toolbar :color="toolbarColor">
+        <ion-toolbar v-show="!headerHidden" :color="toolbarColor">
           <div slot="start">
             <slot name="avatar">
               <ion-avatar
@@ -35,7 +35,10 @@
         </ion-toolbar>
       </slot>
     </ion-header>
+
     <ion-content
+      :scroll-events="true"
+      @ionScroll="logScrolling($event)"
       :fullscreen="fullscreen"
       :scroll-y="scrollY"
       :class="contentPadding ? 'ion-padding' : ''"
@@ -56,14 +59,14 @@
 
 <script lang="ts" setup>
 import { PropType } from 'vue';
-defineProps({
+const props = defineProps({
   pageTitle: {
     type: String,
     default: '',
   },
   pageTitleBold: {
     type: Boolean,
-    default: false,
+    default: true,
   },
   backText: {
     type: String,
@@ -101,6 +104,10 @@ defineProps({
     type: Boolean,
     default: true,
   },
+  hideHeaderOnScroll: {
+    type: Boolean,
+    default: false,
+  },
   showBackLink: {
     type: Boolean,
     default: true,
@@ -111,4 +118,19 @@ defineProps({
   },
 });
 const { isAppPlatfrom } = useDevice();
+const headerHidden = ref(false);
+const emit = defineEmits(['on-scroll-up', 'on-scroll-down']);
+const logScrolling = (event: any) => {
+  if (event.detail.deltaY > 1) {
+    if (props.hideHeaderOnScroll) {
+      headerHidden.value = true;
+    }
+    emit('on-scroll-down');
+  } else if (event.detail.deltaY < -1) {
+    if (props.hideHeaderOnScroll) {
+      headerHidden.value = false;
+    }
+    emit('on-scroll-up');
+  }
+};
 </script>

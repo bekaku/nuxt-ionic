@@ -17,5 +17,5 @@
 </template>
 <script setup lang="ts">
 const { WeeGoTo } = useBase();
-WeeGoTo('/tabs/tab1', true);
+WeeGoTo('/tabs/tabHome', true);
 </script>

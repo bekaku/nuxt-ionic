@@ -152,7 +152,7 @@
     "language": "Languages",
     "help": "Help",
     "appearance": "Appearance",
-    "yourProfile": "Youre profiile",
+    "yourProfile": "Your profiile",
     "oldPassword": "Old password",
     "searchThisPage": "Search this page list.",
     "match": "Match",
@@ -760,7 +760,8 @@
     "adoptIt": "Adopt it",
     "actionIt": "Action it",
     "commentIt": "Comment it",
-    "shareIt": "Share it"
+    "shareIt": "Share it",
+    "postIt": "Post it"
   },
   "ssCode": {
     "eOwn": "E-Own",
@@ -771,5 +772,6 @@
   "copyLinkToPost": "Copy link to post",
   "reportPost": "Report this post",
   "prizeRemain": "Prize remain",
-  "prizeReciveFromText": "{0} received a reward from {1}"
+  "prizeReciveFromText": "{0} received a reward from {1}",
+  "myReport": "Report"
 }

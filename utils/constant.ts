@@ -53,3 +53,10 @@ export const SearchOperation = {
 };
 export const AvatarPlaceHolder128 = 'https://i.pravatar.cc/128';
 export const FeedSectionWidth = 280;
+export const TabsName = {
+  HOME: 'tabHome',
+  REPORT: 'tabReport',
+  POST: 'tabPost',
+  CHAT: 'tabChat',
+  OTHER: 'tabOther',
+};

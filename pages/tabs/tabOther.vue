@@ -22,7 +22,57 @@
               <p>Software Engineer</p>
             </ion-label>
           </ion-item>
-          <!-- @click="WeeGoTo('/settings/appearance')" -->
+          <ion-item button :detail="false" lines="none">
+            <ion-icon
+              :icon="personCircleOutline"
+              slot="start"
+              color="primary"
+            ></ion-icon>
+            <ion-label class="ion-text-capitalize">{{
+              $t('base.yourProfile')
+            }}</ion-label>
+          </ion-item>
+          <ion-item button :detail="false" lines="none">
+            <ion-icon
+              :icon="bookmarkOutline"
+              slot="start"
+              color="primary"
+            ></ion-icon>
+            <ion-label class="ion-text-capitalize">{{
+              $t('savedPost')
+            }}</ion-label>
+          </ion-item>
+          <ion-item button :detail="false" lines="none">
+            <ion-icon
+              :icon="pricetagOutline"
+              slot="start"
+              color="primary"
+            ></ion-icon>
+            <ion-label class="ion-text-capitalize">{{
+              $t('followingTag')
+            }}</ion-label>
+          </ion-item>
+          <ion-item button :detail="false" lines="none">
+            <ion-icon
+              :icon="searchOutline"
+              slot="start"
+              color="primary"
+            ></ion-icon>
+            <ion-label class="ion-text-capitalize">{{
+              $t('base.search')
+            }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-item :detail="false" lines="inset">
+            <ion-label>
+              <p>{{ t('base.setting') }}</p>
+            </ion-label>
+          </ion-item>
           <ion-item
             button
             router-link="/settings/appearance"
@@ -70,90 +120,13 @@
               $t('nav.notification')
             }}</ion-label>
           </ion-item>
-
-          <ion-item lines="none">
-            <ion-icon :icon="phonePortraitOutline" slot="start"></ion-icon>
-            <ion-label>Toast</ion-label>
-            <ion-button fill="clear" @click="showToast()" slot="end">
-              Show
-            </ion-button>
-          </ion-item>
-          <ion-item>
-            <ion-label>Confirm</ion-label>
-            <ion-button
-              fill="clear"
-              @click="confirm()"
-              slot="end"
-              color="danger"
-            >
-              <ion-icon slot="start" :name="trashOutline"></ion-icon>
-              Delete
-            </ion-button>
-          </ion-item>
-
           <ion-item
-            :detail="true"
-            @click="
-              WeeAlert({
-                header: t('error.error'),
-                subHeader: 'This is sub header',
-                text: t('error.loginWrong'),
-              })
-            "
+            @click="WeeGoTo('/animations')"
+            button
+            :detail="false"
+            lines="none"
           >
-            <ion-label>WeeAlert</ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label>Loading</ion-label>
-            <ion-button fill="clear" @click="showLoading" slot="end"
-              >Show loading</ion-button
-            >
-          </ion-item>
-          <ion-item :detail="true" @click="WeeGoTo('/scroll')">
-            <ion-label>Scroll Event</ion-label>
-          </ion-item>
-          <ion-item :detail="true" @click="WeeGoTo('/userList')">
-            <ion-icon :icon="peopleCircleOutline" slot="start"></ion-icon>
-            <ion-label>Users</ion-label>
-          </ion-item>
-          <ion-item :detail="true" @click="WeeGoTo('/auth/login')">
-            <ion-icon :icon="keyOutline" slot="start"></ion-icon>
-            <ion-label>Login</ion-label>
-          </ion-item>
-          <ion-item :detail="true" @click="WeeGoTo('/icons')">
-            <ion-label>Icons</ion-label>
-          </ion-item>
-          <ion-list-header> Recent Conversations </ion-list-header>
-          <ion-item @click="WeeGoTo('/chat')">
-            <ion-avatar slot="start">
-              <img
-                src="https://images.pexels.com/photos/1105191/pexels-photo-1105191.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-              />
-            </ion-avatar>
-            <ion-label>
-              <h2>Finn</h2>
-              <h3>I'm a big deal</h3>
-              <p>
-                Listen, I've had a pretty messed up day Listen, I've had a
-                pretty messed up day Listen, I've had a pretty messed up day
-                Listen, I've had a pretty messed up day
-              </p>
-            </ion-label>
-            <ion-badge color="danger" slot="end"> 99+ </ion-badge>
-          </ion-item>
-
-          <ion-item lines="none">
-            <ion-label class="ion-text-wrap">
-              <ion-text color="primary">
-                <h2>H3 Primary Title</h2>
-              </ion-text>
-              <h3>Paragraph line 1</h3>
-              <p>
-                Paragraph line 2 secondary Paragraph line 2 secondaryParagraph
-                line 2 secondaryParagraph line 2 secondaryParagraph line 2
-                secondaryParagraph line 2 secondary
-              </p>
-            </ion-label>
+            <ion-label class="ion-text-capitalize">Animations</ion-label>
           </ion-item>
           <ion-item lines="none" @click="logout" :detail="true">
             <ion-icon :icon="logOutOutline" slot="start"></ion-icon>
@@ -172,18 +145,22 @@
 import { availableLocales } from '@/utils/lang';
 import { useLangugeAndThemeStore } from '@/stores/langugeAndThemeStore';
 import { AvatarPlaceHolder128 } from '@/utils/constant';
+import { useTabStore } from '~/stores/tabStore';
+import { TabsName } from '@/utils/constant';
 import {
   ellipsisVertical,
   languageOutline,
-  phonePortraitOutline,
-  peopleCircleOutline,
-  keyOutline,
   logOutOutline,
-  trashOutline,
   colorPaletteOutline,
   notificationsOutline,
   closeOutline,
+  personCircleOutline,
+  bookmarkOutline,
+  pricetagOutline,
+  searchOutline,
 } from 'ionicons/icons';
+const tabStore = useTabStore();
+tabStore.setCurrentTab(TabsName.OTHER);
 const langugeAndThemeStore = useLangugeAndThemeStore();
 const { WeeGoTo, WeeToast, WeeConfirm, WeeLoading, WeeAlert } = useBase();
 const { t, locale } = useLang();

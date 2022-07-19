@@ -11,13 +11,12 @@
           <h2 class="wee-fw-600">Chanavee Bekaku</h2>
           <p>{{ AppFormatDate(post.postDatetime, FORMAT_DATE12) }}</p>
         </ion-label>
-        <ion-button slot="end" fill="clear" color="dark">
-          <ion-icon slot="icon-only" :icon="ellipsisHorizontal"></ion-icon>
-        </ion-button>
+
+        <post-menu slot="end" :id="post.id" />
       </ion-item>
     </ion-card-header>
 
-    <ion-card-content>
+    <ion-card-content class="test-border">
       <slot name="description">
         <post-content :content="post.content" :post-id="post.id" />
       </slot>
@@ -25,6 +24,9 @@
         <post-hashtag v-if="post.hashtag.length > 0" :items="post.hashtag" />
       </slot>
     </ion-card-content>
+    <slot name="action">
+      <post-action />
+    </slot>
   </ion-card>
 </template>
 <script setup lang="ts">
