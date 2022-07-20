@@ -24,6 +24,9 @@ const afterTabChange = (ev: any) => {
   console.log('afterTabChange', ev);
   tabStore.setCurrentTab(ev.tab);
 };
+const onOpenPost = () => {
+  console.log('onOpenPost');
+};
 </script>
 
 <template>
@@ -39,6 +42,7 @@ const afterTabChange = (ev: any) => {
             :icon="TabsName.HOME === tabStore.currentTab ? home : homeOutline"
           />
           <ion-label>{{ $t('base.home') }}</ion-label>
+          <ion-ripple-effect></ion-ripple-effect>
         </ion-tab-button>
 
         <ion-tab-button :tab="TabsName.REPORT" href="/tabs/tabReport">
@@ -50,11 +54,13 @@ const afterTabChange = (ev: any) => {
             "
           />
           <ion-label>{{ $t('myReport') }}</ion-label>
+          <ion-ripple-effect></ion-ripple-effect>
         </ion-tab-button>
 
-        <ion-tab-button :tab="TabsName.POST">
+        <ion-tab-button @click="onOpenPost" :tab="TabsName.POST">
           <ion-icon :icon="addCircleOutline" />
           <ion-label>{{ $t('ssAction.postIt') }}</ion-label>
+          <ion-ripple-effect></ion-ripple-effect>
         </ion-tab-button>
 
         <ion-tab-button :tab="TabsName.CHAT" href="/tabs/tabChat">
@@ -67,11 +73,13 @@ const afterTabChange = (ev: any) => {
           />
           <ion-label>{{ $t('nav.chats') }}</ion-label>
           <ion-badge color="danger">22</ion-badge>
+          <ion-ripple-effect></ion-ripple-effect>
         </ion-tab-button>
 
         <ion-tab-button :tab="TabsName.OTHER" href="/tabs/tabOther">
           <ion-icon :icon="ellipsisHorizontal" />
           <ion-label>{{ $t('base.other') }}</ion-label>
+          <ion-ripple-effect></ion-ripple-effect>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>

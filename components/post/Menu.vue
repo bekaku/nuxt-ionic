@@ -1,6 +1,15 @@
 <template>
-  <ion-button @click="openPopover($event)" fill="clear" color="dark">
-    <ion-icon slot="icon-only" :icon="ellipsisHorizontal"></ion-icon>
+  <ion-button
+    @click="openPopover($event)"
+    shape="round"
+    fill="clear"
+    color="dark"
+  >
+    <ion-icon
+      slot="icon-only"
+      class="text-muted"
+      :icon="ellipsisVertical"
+    ></ion-icon>
   </ion-button>
   <ion-popover
     :is-open="popoverOpen"
@@ -18,9 +27,9 @@
           @click="onItemClick(item.id)"
         >
           <ion-icon :icon="item.icon" slot="start"></ion-icon>
-          <ion-label
-            ><p class="wee-text-black">{{ $t(item.label) }}</p></ion-label
-          >
+          <ion-label>
+            <p class="wee-text-black">{{ $t(item.label) }}</p>
+          </ion-label>
         </ion-item>
       </ion-list>
     </ion-content>
@@ -28,7 +37,7 @@
 </template>
 <script setup lang="ts">
 import {
-  ellipsisHorizontal,
+  ellipsisVertical,
   bookmarkOutline,
   linkOutline,
   flagOutline,

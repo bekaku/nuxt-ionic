@@ -1,6 +1,6 @@
 <template>
   <ion-page>
-    <ion-header>
+    <ion-header mode="ios">
       <slot name="toolbar">
         <ion-toolbar v-show="!headerHidden" :color="toolbarColor">
           <div slot="start">

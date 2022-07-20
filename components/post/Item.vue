@@ -24,6 +24,9 @@
         <post-hashtag v-if="post.hashtag.length > 0" :items="post.hashtag" />
       </slot>
     </ion-card-content>
+    <slot name="engaging">
+      <post-engaging :post-id="post.id" />
+    </slot>
     <slot name="action">
       <post-action :post-id="post.id" />
     </slot>
@@ -35,7 +38,6 @@ import { catchUrlFromText } from '@/utils/appUtil';
 import { FORMAT_DATE12 } from '@/utils/dateUtil';
 import { AvatarPlaceHolder128 } from '@/utils/constant';
 import { PostData } from '@/types/models';
-import { ellipsisHorizontal } from 'ionicons/icons';
 const props = defineProps({
   post: {
     type: Object as PropType<PostData>,
