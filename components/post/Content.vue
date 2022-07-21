@@ -9,7 +9,7 @@
     fill="clear"
     color="primary"
     @click="showMoreText = true"
-    class="ion-no-margin ion-no-padding"
+    class="ion-no-margin ion-no-padding ion-text-capitalize"
   >
     {{ '...' + t('base.seeMore') }}
   </ion-button>
@@ -25,16 +25,29 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+  wrapText: {
+    type: Boolean,
+    default: true,
+  },
 });
 const { t } = useLang();
 const lineHeight = ref(0);
 const limitLines = ref(4);
 const showMoreBtn = ref(false);
 const showMoreText = ref(false);
+const contentTimeOut = ref();
 onMounted(() => {
-  setTimeout(() => {
-    setDescHeight();
-  }, 10);
+  if (props.wrapText) {
+    contentTimeOut.value = setTimeout(() => {
+      setDescHeight();
+    }, 10);
+  }
+});
+onBeforeUnmount(() => {
+  if (contentTimeOut.value) {
+    clearTimeout(contentTimeOut.value);
+    contentTimeOut.value = null;
+  }
 });
 const setDescHeight = () => {
   var el = document.getElementById('feed-post-content-' + props.postId);

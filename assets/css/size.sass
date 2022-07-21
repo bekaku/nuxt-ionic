@@ -57,73 +57,73 @@ $flex-gutter: ('none': 0, 'xs': $flex-gutter-xs, 'sm': $flex-gutter-sm, 'md': $f
 @each $space, $value in $spaces
 
   .q-pa-#{$space}
-    padding: map-get($value, "y") map-get($value, "x")
+    padding: map-get($value, "y") map-get($value, "x") !important
   .q-pl-#{$space}
-    padding-left: map-get($value, "x")
+    padding-left: map-get($value, "x") !important
   .q-pr-#{$space}
-    padding-right: map-get($value, "x")
+    padding-right: map-get($value, "x") !important
   .q-pt-#{$space}
-    padding-top: map-get($value, "y")
+    padding-top: map-get($value, "y") !important
   .q-pb-#{$space}
-    padding-bottom: map-get($value, "y")
+    padding-bottom: map-get($value, "y") !important
   .q-px-#{$space}
-    padding-left: map-get($value, "x")
-    padding-right: map-get($value, "x")
+    padding-left: map-get($value, "x") !important
+    padding-right: map-get($value, "x") !important
   .q-py-#{$space}
-    padding-top: map-get($value, "y")
-    padding-bottom: map-get($value, "y")
+    padding-top: map-get($value, "y") !important
+    padding-bottom: map-get($value, "y") !important
 
   .q-ma-#{$space}
-    margin: map-get($value, "y") map-get($value, "x")
+    margin: map-get($value, "y") map-get($value, "x") !important
   .q-ml-#{$space}
-    margin-left: map-get($value, "x")
+    margin-left: map-get($value, "x") !important
   .q-mr-#{$space}
-    margin-right: map-get($value, "x")
+    margin-right: map-get($value, "x") !important
   .q-mt-#{$space}
-    margin-top: map-get($value, "y")
+    margin-top: map-get($value, "y") !important
   .q-mb-#{$space}
-    margin-bottom: map-get($value, "y")
+    margin-bottom: map-get($value, "y") !important
   .q-mx-#{$space}
-    margin-left: map-get($value, "x")
-    margin-right: map-get($value, "x")
+    margin-left: map-get($value, "x") !important
+    margin-right: map-get($value, "x") !important
   .q-my-#{$space}
-    margin-top: map-get($value, "y")
-    margin-bottom: map-get($value, "y")
+    margin-top: map-get($value, "y") !important
+    margin-bottom: map-get($value, "y") !important
 
 .q-mt-auto, .q-my-auto
-  margin-top: auto
+  margin-top: auto !important
 .q-ml-auto
-  margin-left: auto
+  margin-left: auto !important
 .q-mb-auto, .q-my-auto
-  margin-bottom: auto
+  margin-bottom: auto !important
 .q-mr-auto
-  margin-right: auto
+  margin-right: auto !important
 .q-mx-auto
-  margin-left: auto
-  margin-right: auto
+  margin-left: auto !important
+  margin-right: auto !important
 
 @each $name, $size in $flex-gutter
   .q-gutter
     &-x-#{$name}
-      margin-left: -$size
+      margin-left: -$size !important
       > *
-        margin-left: $size
+        margin-left: $size !important
     &-y-#{$name}
-      margin-top: -$size
+      margin-top: -$size !important
       > *
-        margin-top: $size
+        margin-top: $size !important
     &-#{$name}
       @extend .q-gutter-x-#{$name}
       @extend .q-gutter-y-#{$name}
   .q-col-gutter
     &-x-#{$name}
-      margin-left: -$size
+      margin-left: -$size !important
       > *
-        padding-left: $size
+        padding-left: $size !important
     &-y-#{$name}
-      margin-top: -$size
+      margin-top: -$size !important
       > *
-        padding-top: $size
+        padding-top: $size !important
     &-#{$name}
       @extend .q-col-gutter-x-#{$name}
       @extend .q-col-gutter-y-#{$name}

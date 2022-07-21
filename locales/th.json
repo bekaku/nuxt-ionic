@@ -749,6 +749,8 @@
   "optionCountZeroError": "กรุณาเพิ่มตัวเลือกมากกว่า 1 ตัวเลือก",
   "questionCountZeroError": "กรุณาเพิ่มคำถามยังน้อย 1 ข้อ",
   "comment": "ความคิดเห็น",
+  "view": "View",
+  "views": "คนดู",
   "share": "แชร์",
   "comments": "ความคิดเห็น",
   "shares": "แชร์",

@@ -7,7 +7,7 @@ import { isPlatform } from '@ionic/vue';
 import {
   sunnyOutline,
   moonOutline,
-  phonePortraitOutline,
+  // phonePortraitOutline,
   alarmOutline,
 } from 'ionicons/icons';
 export const availableThemes: {
@@ -17,19 +17,19 @@ export const availableThemes: {
 }[] = [
   { key: 'light', text: 'theme.lightTheme', icon: sunnyOutline },
   { key: 'dark', text: 'theme.darkTheme', icon: moonOutline },
-  { key: 'system', text: 'theme.systemTheme', icon: phonePortraitOutline },
+  // { key: 'system', text: 'theme.systemTheme', icon: phonePortraitOutline },
   { key: 'realtime', text: 'theme.realtimeTheme', icon: alarmOutline },
 ];
 export const ThemeManager = () => {
   const langugeAndThemeStore = useLangugeAndThemeStore();
-  const userTheme = useStorage<string>(ThemeKey, 'system');
+  const userTheme = useStorage<string>(ThemeKey, 'light');
   const getSystemTheme = (): ITheme => {
     try {
       return window
         ? window.matchMedia('(prefers-color-scheme: dark)').matches
           ? 'dark'
           : 'light'
-        : 'dark';
+        : 'light';
     } catch (error) {
       return 'light';
     }

@@ -6,13 +6,36 @@
     :content-padding="false"
     :avatar="AvatarPlaceHolder128"
     avatar-width="32"
-    hide-header-on-scroll
+    :hide-header-on-scroll="false"
+    translucent
   >
+    <template #avatar>
+      <ion-avatar
+        class="relative-position"
+        style="width: 32px; height: 32px; top: 7px"
+      >
+        <ion-img :src="AvatarPlaceHolder128" />
+      </ion-avatar>
+    </template>
+    <template #title>
+      <ion-searchbar
+        @ion-focus="WeeGoTo('/search')"
+        class="absolute"
+        style="top: 5px"
+        placeholder="Synapse search"
+        show-cancel-button="never"
+      ></ion-searchbar>
+    </template>
     <template v-slot:actions-end>
-      <base-icon-badge text-color="dark" :icon="notificationsOutline" no="99" />
-      <ion-button color="dark" router-link="/search">
+      <base-icon-badge
+        to="/notifications"
+        text-color="dark"
+        :icon="notificationsOutline"
+        no="99"
+      />
+      <!-- <ion-button color="dark" router-link="/search">
         <ion-icon slot="icon-only" :icon="searchOutline"></ion-icon>
-      </ion-button>
+      </ion-button> -->
     </template>
     <ion-refresher
       slot="fixed"
@@ -25,8 +48,13 @@
         :refreshing-text="$t('base.pleaseWait')"
       ></ion-refresher-content>
     </ion-refresher>
+    <div class="q-mt-md"></div>
     <template v-for="(item, index) in posts" :key="index">
-      <post-item :post="item" :index="index" />
+      <post-item
+        :post="item"
+        :index="index"
+        :like-context-id="`feed-post-context-menu-trigger-${item.id}`"
+      />
     </template>
   </base-layout>
 </template>
@@ -39,6 +67,7 @@ definePageMeta({
   // alias: ['/', '/tabs'],
   alias: ['/tabs'],
 });
+const { WeeGoTo } = useBase();
 const { callAxios } = useAxios();
 const { isAppPlatfrom } = useDevice();
 const { getConfig } = useConfig();

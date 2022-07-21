@@ -21,10 +21,7 @@
               </p>
             </ion-text>
 
-            <ion-button
-              :color="langugeAndThemeStore.theme == 'light' ? 'light' : 'dark'"
-              @click="onBack"
-            >
+            <ion-button @click="onBack" fill="outline">
               <ion-icon slot="start" :icon="arrowBackOutline" />
               {{ $t('base.back') }}
             </ion-button>

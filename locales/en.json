@@ -739,6 +739,8 @@
   "rowCountZeroError": "Please add at least one row.",
   "columnCountZeroError": "Please add more than one column.",
   "optionCountZeroError": "Please add more than one option.",
+  "view": "View",
+  "views": "Views",
   "comment": "comment",
   "share": "share",
   "comments": "comments",

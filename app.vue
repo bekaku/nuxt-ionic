@@ -14,7 +14,7 @@ if (process.client) {
   useBackButton(-1, () => {
     const currentPath = getCurrentPath();
     console.log('currentPath : ' + currentPath);
-    if (!ionRouter.canGoBack() || currentPath == '/tabs/tab1') {
+    if (!ionRouter.canGoBack() || currentPath == '/tabs/tabHome') {
       exitApp();
     }
   });

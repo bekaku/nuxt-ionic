@@ -1,5 +1,5 @@
 <template>
-  <ion-button :color="textColor" class="button-badge">
+  <ion-button :router-link="to" :color="textColor" class="button-badge">
     <ion-icon slot="icon-only" :icon="icon"></ion-icon>
     <ion-badge :color="color">{{ no }}</ion-badge>
   </ion-button>
@@ -23,6 +23,10 @@ defineProps({
   color: {
     type: String,
     default: 'danger',
+  },
+  to: {
+    type: String,
+    default: '#',
   },
 });
 </script>

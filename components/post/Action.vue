@@ -3,14 +3,13 @@
   <ion-grid class="ion-no-padding ion-no-margin">
     <ion-row class="ion-justify-content-around">
       <ion-col size="3" class="ion-text-center">
-        <!-- <ion-button fill="clear" color="medium" @click="openPopover($event)"> -->
-
         <ion-button
           v-show="!actionType"
           fill="clear"
           color="medium"
-          :id="`post-context-menu-trigger-${postId}`"
+          :id="likeContextId"
           @click="onLiked('LOVE_IT')"
+          class="ion-text-capitalize"
         >
           <!-- <ion-button
           v-show="!actionType"
@@ -33,7 +32,7 @@
         <ion-popover
           side="top"
           alignment="center"
-          :trigger="`post-context-menu-trigger-${postId}`"
+          :trigger="likeContextId"
           trigger-action="context-menu"
           :dismiss-on-select="true"
         >
@@ -83,7 +82,11 @@
                   class="ion-text-center ion-activatable ripple-parent text-blue"
                   @click="onLiked('ACTION_IT')"
                 >
-                  <icon-bi-hand-index-thumb-fill :size="23" />
+                  <base-icon
+                    :icon="biHandIndexThumbFill"
+                    color="text-blue"
+                    :size="23"
+                  />
                   <span style="display: block" class="wee-text-caption">{{
                     $t('ssAction.actionIt')
                   }}</span>
@@ -94,34 +97,43 @@
           </transition>
         </ion-popover>
 
-        <transition
-          appear
-          enter-active-class="animate__animated animate__heartBeat"
+        <ion-button
+          class="ion-text-capitalize"
+          v-if="actionType"
+          fill="clear"
+          @click="onUnLiked"
         >
-          <ion-button v-if="actionType" fill="clear" @click="onUnLiked">
+          <transition
+            appear
+            enter-active-class="animate__animated animate__heartBeat"
+          >
             <ion-icon
               v-if="actionType != 'ACTION_IT'"
               :class="actionColor"
               slot="start"
               :icon="actionIcon"
             ></ion-icon>
-            <icon-bi-hand-index-thumb-fill
-              class="q-mr-xs"
-              color="#2196f3"
+            <base-icon
               v-else
+              class="q-mr-xs"
+              :icon="biHandIndexThumbFill"
+              color="text-blue"
               :size="23"
             />
-
-            <span
-              class="wee-text-smaller app-text-weight-thin"
-              :class="actionColor"
-              >{{ actionText }}</span
-            ></ion-button
-          >
-        </transition>
+          </transition>
+          <span
+            class="wee-text-smaller app-text-weight-thin"
+            :class="actionColor"
+            >{{ actionText }}</span
+          ></ion-button
+        >
       </ion-col>
-      <ion-col size="3" class="ion-text-center">
-        <ion-button fill="clear" color="medium"
+      <ion-col v-if="showActionComment" size="3" class="ion-text-center">
+        <ion-button
+          fill="clear"
+          color="medium"
+          class="ion-text-capitalize"
+          @click="WeeGoTo(`/post/${postId}`)"
           ><ion-icon slot="start" :icon="chatboxEllipsesOutline"></ion-icon
           ><span class="wee-text-smaller text-muted">{{
             $t('ssAction.comment')
@@ -129,7 +141,7 @@
         >
       </ion-col>
       <ion-col size="3" class="ion-text-center">
-        <ion-button fill="clear" color="medium"
+        <ion-button class="ion-text-capitalize" fill="clear" color="medium"
           ><ion-icon slot="start" :icon="returnUpForwardOutline"></ion-icon
           ><span class="wee-text-smaller text-muted">{{
             $t('ssAction.shareIt')
@@ -142,6 +154,7 @@
 <script setup lang="ts">
 import { PropType } from 'vue';
 import { PostActionType } from '@/types/models';
+import { biHandIndexThumbFill } from '@quasar/extras/bootstrap-icons';
 import {
   heartOutline,
   heart,
@@ -159,7 +172,16 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+  likeContextId: {
+    type: String,
+    default: '',
+  },
+  showActionComment: {
+    type: Boolean,
+    default: true,
+  },
 });
+const { WeeGoTo } = useBase();
 const hoverTimeOut = ref<any>();
 const actionType = ref<PostActionType>();
 onMounted(() => {

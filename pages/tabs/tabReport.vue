@@ -5,7 +5,7 @@
     :content-padding="true"
     :show-back-link="false"
   >
-    <p>Tab Report</p>
+    <p v-for="(item, index) in 100" :key="index">Tab Report</p>
   </base-layout>
 </template>
 <script setup lang="ts"></script>

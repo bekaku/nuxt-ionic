@@ -1,40 +1,52 @@
 <template>
   <ion-page>
-    <ion-header mode="ios">
-      <slot name="toolbar">
-        <ion-toolbar v-show="!headerHidden" :color="toolbarColor">
-          <div slot="start">
-            <slot name="avatar">
-              <ion-avatar
-                v-if="avatar"
-                :class="isAppPlatfrom('android') ? 'ion-margin-start' : ''"
-                :style="{
-                  height: avatarWidth + 'px',
-                  width: avatarWidth + 'px',
-                }"
+    <slot name="header">
+      <ion-header
+        mode="ios"
+        :translucent="translucent"
+        :class="{ 'ion-no-border': headerNoBorder }"
+      >
+        <slot name="toolbar">
+          <ion-toolbar v-show="!headerHidden" :color="toolbarColor">
+            <slot name="start">
+              <div slot="start">
+                <slot name="avatar">
+                  <ion-avatar
+                    v-if="avatar"
+                    :class="isAppPlatfrom('android') ? 'ion-margin-start' : ''"
+                    :style="{
+                      height: avatarWidth + 'px',
+                      width: avatarWidth + 'px',
+                    }"
+                  >
+                    <ion-img :src="avatar" />
+                  </ion-avatar>
+                </slot>
+                <slot name="actions-start">
+                  <ion-back-button
+                    v-if="showBackLink"
+                    :text="backText"
+                    :default-href="pageDefaultBackLink"
+                  ></ion-back-button>
+                </slot>
+              </div>
+            </slot>
+            <slot name="title">
+              <ion-title
+                :size="titleSize"
+                :style="{ fontWeight: pageTitleBold ? 'bold' : 'normal' }"
+                >{{ pageTitle }}</ion-title
               >
-                <ion-img :src="avatar" />
-              </ion-avatar>
             </slot>
-            <slot name="actions-start">
-              <ion-back-button
-                v-if="showBackLink"
-                :text="backText"
-                :default-href="pageDefaultBackLink"
-              ></ion-back-button>
+            <slot name="end">
+              <ion-buttons slot="end">
+                <slot name="actions-end"></slot>
+              </ion-buttons>
             </slot>
-          </div>
-          <ion-title
-            :size="titleSize"
-            :style="{ fontWeight: pageTitleBold ? 'bold' : 'normal' }"
-            >{{ pageTitle }}</ion-title
-          >
-          <ion-buttons slot="end">
-            <slot name="actions-end"></slot>
-          </ion-buttons>
-        </ion-toolbar>
-      </slot>
-    </ion-header>
+          </ion-toolbar>
+        </slot>
+      </ion-header>
+    </slot>
 
     <ion-content
       :scroll-events="true"
@@ -42,10 +54,9 @@
       :fullscreen="fullscreen"
       :scroll-y="scrollY"
       :class="contentPadding ? 'ion-padding' : ''"
-      class="wee-container-limit"
     >
       <template v-if="collapse == 'condense'">
-        <ion-header collapse="condense">
+        <ion-header mode="ios" collapse="condense">
           <ion-toolbar :color="toolbarColor">
             <ion-title size="large">{{ pageTitle }}</ion-title>
           </ion-toolbar>
@@ -96,6 +107,10 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  translucent: {
+    type: Boolean,
+    default: false,
+  },
   scrollY: {
     type: Boolean,
     default: true,
@@ -111,6 +126,10 @@ const props = defineProps({
   showBackLink: {
     type: Boolean,
     default: true,
+  },
+  headerNoBorder: {
+    type: Boolean,
+    default: false,
   },
   titleSize: {
     type: String as PropType<'large' | 'small' | undefined>,

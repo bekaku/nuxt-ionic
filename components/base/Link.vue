@@ -1,7 +1,7 @@
 <template>
   <a
     href="javascript:void(0)"
-    class="ion-activatable base-link-ripple-parent app-text-link text-caption q-pa-xs"
+    class="ion-activatable base-link-ripple-parent app-text-link q-pa-xs"
     :class="color"
     >{{ label }}
     <ion-ripple-effect></ion-ripple-effect>
