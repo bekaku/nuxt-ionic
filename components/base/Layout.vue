@@ -4,10 +4,14 @@
       <ion-header
         mode="ios"
         :translucent="translucent"
-        :class="{ 'ion-no-border': headerNoBorder }"
+        :class="{ 'ion-no-border': headerNoBorder || dark }"
       >
         <slot name="toolbar">
-          <ion-toolbar v-show="!headerHidden" :color="toolbarColor">
+          <ion-toolbar
+            v-show="!headerHidden"
+            :color="toolbarColor"
+            :class="{ dark: dark }"
+          >
             <slot name="start">
               <div slot="start">
                 <slot name="avatar">
@@ -39,9 +43,11 @@
               >
             </slot>
             <slot name="end">
-              <ion-buttons slot="end">
-                <slot name="actions-end"></slot>
-              </ion-buttons>
+              <div slot="end">
+                <ion-buttons>
+                  <slot name="actions-end"></slot>
+                </ion-buttons>
+              </div>
             </slot>
           </ion-toolbar>
         </slot>
@@ -53,7 +59,7 @@
       @ionScroll="logScrolling($event)"
       :fullscreen="fullscreen"
       :scroll-y="scrollY"
-      :class="contentPadding ? 'ion-padding' : ''"
+      :class="{ 'ion-padding': contentPadding, dark: dark }"
     >
       <template v-if="collapse == 'condense'">
         <ion-header mode="ios" collapse="condense">
@@ -135,6 +141,10 @@ const props = defineProps({
     type: String as PropType<'large' | 'small' | undefined>,
     default: undefined, //"large" | "small" | undefined
   },
+  dark: {
+    type: Boolean,
+    default: false,
+  },
 });
 const { isAppPlatfrom } = useDevice();
 const headerHidden = ref(false);
@@ -153,3 +163,13 @@ const logScrolling = (event: any) => {
   }
 };
 </script>
+<style scoped>
+ion-content.dark {
+  --background: var(--v-main-bg-color-theme-dark);
+  --color: var(--v-main-text-body-theme-dark);
+}
+ion-toolbar.dark {
+  --background: var(--v-second-bg-color-theme-dark);
+  --color: var(--v-main-text-body-theme-dark);
+}
+</style>

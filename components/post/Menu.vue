@@ -1,39 +1,42 @@
 <template>
-  <ion-button
-    @click="openPopover($event)"
-    shape="round"
-    fill="clear"
-    color="dark"
-  >
-    <ion-icon
-      slot="icon-only"
-      class="text-muted"
-      :icon="ellipsisVertical"
-    ></ion-icon>
-  </ion-button>
-  <ion-popover
-    :is-open="popoverOpen"
-    :event="event"
-    @didDismiss="popoverOpen = false"
-    trigger-action="click"
-  >
-    <ion-content :scroll-y="false">
-      <ion-list lines="none">
-        <ion-item
-          v-for="(item, index) in items"
-          :key="index"
-          button
-          :detail="false"
-          @click="onItemClick(item.id)"
-        >
-          <ion-icon :icon="item.icon" slot="start"></ion-icon>
-          <ion-label>
-            <p class="wee-text-black">{{ $t(item.label) }}</p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-popover>
+  <div>
+    <ion-button
+      @click="openPopover($event)"
+      shape="round"
+      fill="clear"
+      color="dark"
+      class="ion-no-margin ion-no-padding"
+    >
+      <ion-icon
+        slot="icon-only"
+        class="text-muted"
+        :icon="ellipsisVertical"
+      ></ion-icon>
+    </ion-button>
+    <ion-popover
+      :is-open="popoverOpen"
+      :event="event"
+      @didDismiss="popoverOpen = false"
+      trigger-action="click"
+    >
+      <ion-content>
+        <ion-list lines="none">
+          <ion-item
+            v-for="(item, index) in items"
+            :key="index"
+            button
+            :detail="false"
+            @click="onItemClick(item.id)"
+          >
+            <ion-icon :icon="item.icon" slot="start"></ion-icon>
+            <ion-label>
+              <p class="wee-text-black">{{ $t(item.label) }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-popover>
+  </div>
 </template>
 <script setup lang="ts">
 import {
@@ -52,6 +55,10 @@ const props = defineProps({
     type: Number,
     default: 0,
     required: true,
+  },
+  contextId: {
+    type: String,
+    default: '',
   },
 });
 const popoverOpen = ref(false);

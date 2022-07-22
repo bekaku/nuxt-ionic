@@ -30,28 +30,28 @@ $flex-gutter: ('none': 0, 'xs': $flex-gutter-xs, 'sm': $flex-gutter-sm, 'md': $f
   @each $name, $size in $sizes
     #{"--q-size-"}#{$name}: #{$size}
 
-.fit
+.q-fit
   width: 100% !important
   height: 100% !important
-.full-height
+.q-full-height
   height: 100% !important
-.full-width
+.q-full-width
   width: 100% !important
   margin-left: 0 !important
   margin-right: 0 !important
 
-.window-height
+.q-window-height
   margin-top: 0 !important
   margin-bottom: 0 !important
   height: 100vh !important
-.window-width
+.q-window-width
   margin-left: 0 !important
   margin-right: 0 !important
   width: 100vw !important
 
-.block
+.q-block
   display: block !important
-.inline-block
+.q-inline-block
   display: inline-block !important
 
 @each $space, $value in $spaces

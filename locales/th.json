@@ -58,6 +58,7 @@
     "enable": "เปิดใช้งาน",
     "disable": "ปิดใช้งาน",
     "pleaseWait": "กรุณารอซักครู่...",
+    "pleaseWaitWhileLoadingMoreData": "กำลังโหลดข้อมูลเพิ่มเติม...",
     "pleaseWaitWhileLoading": "กรุณารอซักครู่ระบบกำลังประมวลผล",
     "deleteConfirm": "ยืนยันการลบข้อมูล",
     "changePassword": "เปลี่ยนรหัสผ่าน",

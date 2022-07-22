@@ -6,26 +6,28 @@
     :content-padding="false"
     :avatar="AvatarPlaceHolder128"
     avatar-width="32"
-    :hide-header-on-scroll="false"
+    :hide-header-on-scroll="true"
     translucent
   >
     <template #avatar>
       <ion-avatar
-        class="relative-position"
+        class="q-relative-position"
         style="width: 32px; height: 32px; top: 7px"
       >
         <ion-img :src="AvatarPlaceHolder128" />
       </ion-avatar>
     </template>
+
     <template #title>
       <ion-searchbar
         @ion-focus="WeeGoTo('/search')"
-        class="absolute"
+        class="q-absolute"
         style="top: 5px"
         placeholder="Synapse search"
         show-cancel-button="never"
       ></ion-searchbar>
     </template>
+
     <template v-slot:actions-end>
       <base-icon-badge
         to="/notifications"
@@ -56,13 +58,26 @@
         :like-context-id="`feed-post-context-menu-trigger-${item.id}`"
       />
     </template>
+
+    <ion-infinite-scroll
+      @ionInfinite="loadData($event)"
+      threshold="100px"
+      id="feed-infinite-scroll"
+      :disabled="isInfiniteDisabled"
+    >
+      <ion-infinite-scroll-content
+        loading-spinner="dots"
+        :loading-text="$t('base.pleaseWaitWhileLoadingMoreData')"
+      >
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
   </base-layout>
 </template>
 <script setup lang="ts">
 import { searchOutline, notificationsOutline } from 'ionicons/icons';
 import { AvatarPlaceHolder128 } from '@/utils/constant';
 import { PostData } from '@/types/models';
-
+import { InfiniteScrollCustomEvent } from '@ionic/vue';
 definePageMeta({
   // alias: ['/', '/tabs'],
   alias: ['/tabs'],
@@ -179,13 +194,21 @@ const initialPost: PostData[] = [
   },
 ];
 const posts = ref<PostData[]>(initialPost);
+const isInfiniteDisabled = ref(false);
 const doRefresh = (event: any) => {
   console.log('Begin async operation');
-
   setTimeout(() => {
-    console.log('Async operation has ended');
     event.target.complete();
   }, 2000);
+};
+const loadData = (ev: InfiniteScrollCustomEvent) => {
+  console.log('Loaded data');
+  setTimeout(() => {
+    posts.value.push(initialPost[0]);
+    ev.target.complete();
+  }, 3 * 1000);
+
+  // isInfiniteDisabled.value = true;
 };
 </script>
 <style scoped>

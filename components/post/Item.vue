@@ -14,7 +14,13 @@
           <p>{{ AppFormatDate(post.postDatetime, FORMAT_DATE12) }}</p>
         </ion-label>
 
-        <lazy-post-menu v-if="showMenu" slot="end" :id="post.id" />
+        <post-menu
+          v-if="showMenu"
+          slot="end"
+          :id="post.id"
+          :key="`feed-post-menu-trigger-${post.id}`"
+          :context-id="`feed-post-menu-trigger-${post.id}`"
+        />
         <ion-button
           v-if="showFollowPost"
           @click="following = !following"
@@ -43,6 +49,10 @@
         <post-hashtag v-if="post.hashtag.length > 0" :items="post.hashtag" />
       </slot>
     </ion-card-content>
+
+    <slot name="photos">
+      <post-gallerry v-if="post.gallery.length > 0" :items="post.gallery" />
+    </slot>
 
     <slot name="engaging">
       <post-engaging :post-id="post.id" />

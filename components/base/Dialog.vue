@@ -1,10 +1,11 @@
 <template>
   <ion-modal :is-open="show" @ion-modal-did-dismiss="onClose">
-    <ion-header mode="ios" class="ion-no-border">
+    <ion-header mode="ios" :class="{ 'ion-no-border': headerNoBorder || dark }">
       <slot name="toolbar">
-        <ion-toolbar>
+        <ion-toolbar :class="{ dark: dark }">
           <slot name="start">
             <base-icon
+              v-if="icon"
               slot="start"
               :ionic-icon="ionicIcon"
               :icon="icon"
@@ -13,7 +14,7 @@
             />
           </slot>
           <slot name="title">
-            <ion-title>{{ title }}</ion-title>
+            <ion-title v-if="title">{{ title }}</ion-title>
           </slot>
           <slot name="end">
             <ion-buttons slot="end">
@@ -25,21 +26,20 @@
         </ion-toolbar>
       </slot>
     </ion-header>
-    <ion-content :class="contentPadding ? 'ion-padding' : ''">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum
-        quidem recusandae ducimus quos reprehenderit. Veniam, molestias quos,
-        dolorum consequuntur nisi deserunt omnis id illo sit cum qui. Eaque,
-        dicta.
-      </p>
+    <ion-content :class="{ 'ion-padding': contentPadding, dark: dark }">
+      <slot />
     </ion-content>
   </ion-modal>
 </template>
 <script setup lang="ts">
-import { documentOutline, closeOutline } from 'ionicons/icons';
+import { closeOutline } from 'ionicons/icons';
 const props = defineProps({
   modelValue: Boolean,
   dialog: {
+    type: Boolean,
+    default: false,
+  },
+  headerNoBorder: {
     type: Boolean,
     default: false,
   },
@@ -55,13 +55,17 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  dark: {
+    type: Boolean,
+    default: false,
+  },
   contentPadding: {
     type: Boolean,
     default: true,
   },
   icon: {
     type: String,
-    default: documentOutline,
+    default: '',
   },
   iconColor: {
     type: String,
@@ -103,3 +107,13 @@ const onClose = () => {
   show.value = false;
 };
 </script>
+<style scoped>
+ion-content.dark {
+  --background: var(--v-main-bg-color-theme-dark);
+  --color: var(--v-main-text-body-theme-dark);
+}
+ion-toolbar.dark {
+  --background: var(--v-second-bg-color-theme-dark);
+  --color: var(--v-main-text-body-theme-dark);
+}
+</style>

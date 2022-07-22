@@ -13,7 +13,6 @@
       :color="
         langugeAndThemeStore.theme == 'dark' ? 'text-muted' : 'text-primary'
       "
-      class="wee-text-weight-light q-mt-lg"
       :label="`#${item.name}`"
       @click="WeeGoTo(`/hashtag/${item.id}`)"
     />

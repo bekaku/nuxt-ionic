@@ -59,6 +59,7 @@
     "enable": "Enable",
     "disable": "Disable",
     "pleaseWait": "Please wait...",
+    "pleaseWaitWhileLoadingMoreData": "Loading more data...",
     "pleaseWaitWhileLoading": "Plese wait while loading",
     "deleteConfirm": "Confirm to delete ?",
     "changePassword": "Change password",

@@ -53,7 +53,14 @@
     title="Reaction"
     :icon="happyOutline"
     ionic-icon
-  />
+  >
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum
+      quidem recusandae ducimus quos reprehenderit. Veniam, molestias quos,
+      dolorum consequuntur nisi deserunt omnis id illo sit cum qui. Eaque,
+      dicta.
+    </p>
+  </base-dialog>
 </template>
 <script setup lang="ts">
 import {
