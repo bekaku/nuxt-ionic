@@ -1,9 +1,18 @@
 <template>
   <ion-row
     ><template v-for="(item, index) in limitItems" :key="index">
-      <ion-col class="ion-no-margin ion-no-padding" :size="getColWidth">
+      <ion-col
+        class="ion-no-margin ion-no-padding"
+        :size="getColWidth"
+        :style="items.length > 1 ? 'padding: 0.5px !important' : ''"
+      >
         <!-- <ion-img @click="onOpenGallery(index)" :src="item.image"></ion-img> -->
-        <ion-img @click="WeeGoTo('/post/gallerry')" :src="item.image"></ion-img>
+        <!-- <ion-img @click="WeeGoTo('/post/gallerry')" :src="item.image"></ion-img> -->
+        <base-image
+          @click="WeeGoTo('/post/gallerry')"
+          :src="item.image"
+          ratio="4/3"
+        />
         <div
           v-if="index == limitImage - 1 && getMoreNumber > 0"
           @click="WeeGoTo('/post/gallerry')"

@@ -1,6 +1,6 @@
 <template>
   <base-layout
-    :page-title="$t('base.appearance')"
+    :page-title="$t('base.language')"
     fullscreen
     :content-padding="false"
     show-back-link

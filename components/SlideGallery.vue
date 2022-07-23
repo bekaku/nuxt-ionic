@@ -22,7 +22,12 @@
   >
     <swiper-slide v-for="(item, index) in items" :key="index">
       <div class="swiper-zoom-container">
-        <ion-img class="swiper-zoom-target" :src="item.image"></ion-img></div
+        <!-- <ion-img class="swiper-zoom-target" :src="item.image"></ion-img> -->
+        <base-image
+          class="swiper-zoom-target"
+          :src="item.image"
+          ratio="1"
+        /></div
     ></swiper-slide>
   </swiper>
 </template>

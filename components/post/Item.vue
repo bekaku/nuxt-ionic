@@ -45,6 +45,7 @@
           :post-id="post.id"
         />
       </slot>
+
       <slot name="hashtag">
         <post-hashtag v-if="post.hashtag.length > 0" :items="post.hashtag" />
       </slot>

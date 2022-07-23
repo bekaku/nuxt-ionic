@@ -6,7 +6,6 @@
     :content-padding="false"
     :avatar="AvatarPlaceHolder128"
     avatar-width="32"
-    :hide-header-on-scroll="true"
     translucent
   >
     <template #avatar>
@@ -19,13 +18,15 @@
     </template>
 
     <template #title>
-      <ion-searchbar
-        @ion-focus="WeeGoTo('/search')"
-        class="q-absolute"
-        style="top: 5px"
-        placeholder="Synapse search"
-        show-cancel-button="never"
-      ></ion-searchbar>
+      <ion-title>
+        <ion-searchbar
+          @ion-focus="WeeGoTo('/search')"
+          class="q-absolute"
+          style="top: 5px"
+          placeholder="Synapse search"
+          show-cancel-button="never"
+        ></ion-searchbar>
+      </ion-title>
     </template>
 
     <template v-slot:actions-end>
@@ -51,6 +52,11 @@
       ></ion-refresher-content>
     </ion-refresher>
     <div class="q-mt-md"></div>
+
+    <base-image
+      src="https://images.pexels.com/photos/12798416/pexels-photo-12798416.jpeg"
+      ratio="4/3"
+    />
     <template v-for="(item, index) in posts" :key="index">
       <post-item
         :post="item"
@@ -96,11 +102,11 @@ onMounted(() => {
   onLoadData();
 });
 const onLoadData = async () => {
-  const res = await callAxios({
-    API: '/posts',
-    method: 'GET',
-  });
-  console.log('callAxios', res);
+  // const res = await callAxios({
+  //   API: '/posts',
+  //   method: 'GET',
+  // });
+  // console.log('callAxios', res);
 };
 const initialPost: PostData[] = [
   {
@@ -206,7 +212,7 @@ const loadData = (ev: InfiniteScrollCustomEvent) => {
   setTimeout(() => {
     posts.value.push(initialPost[0]);
     ev.target.complete();
-  }, 3 * 1000);
+  }, 1.5 * 1000);
 
   // isInfiniteDisabled.value = true;
 };

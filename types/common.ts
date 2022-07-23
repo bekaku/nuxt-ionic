@@ -53,6 +53,7 @@ export type IAlert =
   | 'is-danger'
   | 'is-light';
 export type IHrefTarget = '_blank' | '_parent' | '_self' | '_top';
+export type ImgRatioType = '1' | '16/9' | '4/3';
 // interface
 export interface ILocales {
   name: string;
