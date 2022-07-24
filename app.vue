@@ -7,9 +7,7 @@
 import { App } from '@capacitor/app';
 import { AppSetup } from '~/utils/app';
 const ionRouter = useIonRouter();
-const { getCurrentPath, WeeConfirm } = useBase();
-const { t } = useLang();
-// Hardware Back Button event
+const { getCurrentPath } = useBase();
 if (process.client) {
   useBackButton(-1, () => {
     const currentPath = getCurrentPath();
@@ -21,12 +19,8 @@ if (process.client) {
 }
 
 const exitApp = async () => {
-  const confirm = await WeeConfirm(t('app.monogram'), t('base.exitAppConfirm'));
-  if (confirm) {
-    App.exitApp();
-  }
+  App.exitApp();
 };
 
 AppSetup();
-console.log('app.vue > process', process);
 </script>

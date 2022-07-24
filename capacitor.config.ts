@@ -3,7 +3,8 @@ import { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'com.grandats.supersynapse',
   appName: 'Super Synapse',
-  webDir: '.output/public',
+  //webDir: '.output/public',
+  webDir: 'dist',
   bundledWebRuntime: false,
   plugins: {
     SplashScreen: {
@@ -18,7 +19,7 @@ const config: CapacitorConfig = {
       showSpinner: false,
     },
   },
-  cordova: {},
+  //cordova: {},
 };
 
 export default config;

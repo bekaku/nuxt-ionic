@@ -1,7 +1,7 @@
 {
 	"appId": "com.grandats.supersynapse",
 	"appName": "Super Synapse",
-	"webDir": ".output/public",
+	"webDir": "dist",
 	"bundledWebRuntime": false,
 	"plugins": {
 		"SplashScreen": {
@@ -15,6 +15,5 @@
 			"spinnerColor": "#999999",
 			"showSpinner": false
 		}
-	},
-	"cordova": {}
+	}
 }
