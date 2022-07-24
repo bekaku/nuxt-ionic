@@ -67,7 +67,7 @@ export default defineNuxtConfig({
       // apiBase: '/api',
       apiBase: devMode
         ? 'https://jsonplaceholder.typicode.com'
-        : 'https://api.synapse.app',
+        : 'https://jsonplaceholder.typicode.com',
       timeOut: 5 * 60000, // 60000 = 1 minute, 0 = no timeout
       token:
         'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzMmVjOWMwYy02YWVmLTQ2ZjEtYTY5Yy0zYjRlMDU3ZjBjYjkiLCJpYXQiOjE2NTExMzkwODksImV4cCI6MTY4MjY3NTA4OX0.e8OM_0M5HXyM0J2cxeBYjqYYVwPDm_6JBH2lB9DbsFo',

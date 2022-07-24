@@ -6,17 +6,17 @@ const config: CapacitorConfig = {
   webDir: '.output/public',
   bundledWebRuntime: false,
   plugins: {
-    // SplashScreen: {
-    //   launchShowDuration: 3000,
-    //   launchAutoHide: true,
-    //   backgroundColor: '#ffffffff',
-    //   androidSplashResourceName: 'splash',
-    //   androidScaleType: 'CENTER_CROP',
-    //   androidSpinnerStyle: 'large',
-    //   iosSpinnerStyle: 'small',
-    //   spinnerColor: '#999999',
-    //   showSpinner: false,
-    // },
+    SplashScreen: {
+      launchShowDuration: 3000,
+      launchAutoHide: true,
+      backgroundColor: '#ffffffff',
+      androidSplashResourceName: 'splash',
+      androidScaleType: 'CENTER_CROP',
+      androidSpinnerStyle: 'large',
+      iosSpinnerStyle: 'small',
+      spinnerColor: '#999999',
+      showSpinner: false,
+    },
   },
   cordova: {},
 };

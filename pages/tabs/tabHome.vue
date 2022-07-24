@@ -17,7 +17,7 @@
       </ion-avatar>
     </template>
 
-    <template #title>
+    <!-- <template #title>
       <ion-title>
         <ion-searchbar
           @ion-focus="WeeGoTo('/search')"
@@ -27,7 +27,7 @@
           show-cancel-button="never"
         ></ion-searchbar>
       </ion-title>
-    </template>
+    </template> -->
 
     <template v-slot:actions-end>
       <base-icon-badge
@@ -36,9 +36,9 @@
         :icon="notificationsOutline"
         no="99"
       />
-      <!-- <ion-button color="dark" router-link="/search">
+      <ion-button color="dark" router-link="/search">
         <ion-icon slot="icon-only" :icon="searchOutline"></ion-icon>
-      </ion-button> -->
+      </ion-button>
     </template>
     <ion-refresher
       slot="fixed"
@@ -102,11 +102,11 @@ onMounted(() => {
   onLoadData();
 });
 const onLoadData = async () => {
-  // const res = await callAxios({
-  //   API: '/posts',
-  //   method: 'GET',
-  // });
-  // console.log('callAxios', res);
+  const res = await callAxios({
+    API: '/posts',
+    method: 'GET',
+  });
+  console.log('callAxios', res);
 };
 const initialPost: PostData[] = [
   {
