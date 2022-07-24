@@ -33,6 +33,7 @@
     "@capacitor/core": "3.6.0",
     "@capacitor/device": "^1.1.2",
     "@capacitor/haptics": "1.1.4",
+    "@capacitor/ios": "^3.6.0",
     "@capacitor/keyboard": "1.2.3",
     "@capacitor/status-bar": "1.0.8",
     "@quasar/extras": "^1.14.3",

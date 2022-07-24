@@ -5,6 +5,7 @@
     :show-back-link="false"
     :content-padding="false"
     :avatar="AvatarPlaceHolder128"
+    hide-header-on-scroll
     avatar-width="32"
     translucent
   >
@@ -82,6 +83,7 @@
 <script setup lang="ts">
 import { searchOutline, notificationsOutline } from 'ionicons/icons';
 import { AvatarPlaceHolder128 } from '@/utils/constant';
+import { convertStringToDate } from '@/utils/dateUtil';
 import { PostData } from '@/types/models';
 import { InfiniteScrollCustomEvent } from '@ionic/vue';
 definePageMeta({
@@ -99,15 +101,20 @@ const logDeviceInfo = async () => {
 };
 onMounted(() => {
   logDeviceInfo();
-  onLoadData();
+  // onLoadData();
+
+  console.log(
+    'convertStringToDate',
+    convertStringToDate('2022-04-28 11:30:30')
+  );
 });
-const onLoadData = async () => {
-  const res = await callAxios({
-    API: '/posts',
-    method: 'GET',
-  });
-  console.log('callAxios', res);
-};
+// const onLoadData = async () => {
+//   const res = await callAxios({
+//     API: '/posts',
+//     method: 'GET',
+//   });
+//   console.log('callAxios', res);
+// };
 const initialPost: PostData[] = [
   {
     id: 1,

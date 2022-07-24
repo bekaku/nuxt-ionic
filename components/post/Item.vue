@@ -7,11 +7,18 @@
         <ion-avatar @click="WeeGoTo('/profile')" slot="start">
           <ion-img :src="AvatarPlaceHolder128" />
         </ion-avatar>
+        <!-- <ion-label>
+          <h2 @click="WeeGoTo('/profile')" class="wee-text-weight-bold">
+            Chanavee Bekaku
+          </h2>
+          <p>{{ AppFormatDate(post.postDatetime, FORMAT_DATE12) }}</p>
+        </ion-label> -->
         <ion-label>
           <h2 @click="WeeGoTo('/profile')" class="wee-text-weight-bold">
             Chanavee Bekaku
           </h2>
           <p>{{ AppFormatDate(post.postDatetime, FORMAT_DATE12) }}</p>
+          <!-- <p>{{ postDate }}</p> -->
         </ion-label>
 
         <post-menu
@@ -107,7 +114,7 @@ const props = defineProps({
 });
 const { AppFormatDate, WeeGoTo } = useBase();
 onMounted(() => {
-  checkOgLink();
+  // checkOgLink();
 });
 const following = ref(false);
 const checkOgLink = async () => {

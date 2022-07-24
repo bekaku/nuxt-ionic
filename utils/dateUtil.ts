@@ -1,4 +1,4 @@
-import { formatRelative, formatDistance, format } from 'date-fns';
+import { formatRelative, formatDistance, format, parse } from 'date-fns';
 import { th, enUS } from 'date-fns/locale';
 
 export const FORMAT_DATE = 'dd/MM/yyyy'; //25/05/2022
@@ -15,6 +15,7 @@ export const FORMAT_DATE9 = 'dd MMMM yyyy HH:mm:ss'; //25 May 2022 17:26:31
 export const FORMAT_DATE10 = 'yyyy/MM/dd'; //2022/05/25
 export const FORMAT_DATE11 = 'PPPp'; //April 28th, 2022 at 11:30 AM
 export const FORMAT_DATE12 = 'PPp'; //Apr 28, 2022, 11:30 AM
+export const FORMAT_DATE13 = 'yyyy-MM-dd HH:mm:ss';
 
 export const addDateByDays = (days: number) => {
   const date = new Date();
@@ -27,8 +28,12 @@ export const getDateNow = () => {
 export const getYearNow = () => {
   return new Date().getFullYear();
 };
-export const convertStringToDate = (dateString: string): Date => {
-  return new Date(dateString);
+export const convertStringToDate = (
+  dateString: string,
+  format: string = 'yyyy-MM-dd HH:mm:ss'
+): Date => {
+  return parse(dateString, format, new Date());
+  // return new Date(dateString);
 };
 export const isDate2GreaterThan = (d1: Date, d2: Date) => {
   return d2.getTime() > d1.getTime();
