@@ -7,5 +7,6 @@
     <domain includeSubdomains="true">http://appedr.com</domain>
     <domain includeSubdomains="true">grandats.com</domain>
     <domain includeSubdomains="true">www.grandats.com</domain>
+    <domain includeSubdomains="true">localhost</domain>
   </domain-config>
 </network-security-config>
