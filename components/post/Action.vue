@@ -3,98 +3,122 @@
   <ion-grid class="ion-no-padding ion-no-margin">
     <ion-row class="ion-justify-content-around">
       <ion-col size="3" class="ion-text-center">
-        <ion-button
+        <!-- <ion-button
           v-show="!actionType"
           fill="clear"
           color="medium"
           :id="likeContextId"
           @click="onLiked('LOVE_IT')"
           class="ion-text-capitalize"
-        >
-          <!-- <ion-button
+        > -->
+        <ion-button
           v-show="!actionType"
           fill="clear"
           color="medium"
           @click="openPopover($event)"
-        >-->
+        >
           <ion-icon slot="start" :icon="heartOutline"></ion-icon>
           <span class="wee-text-smaller text-muted app-text-weight-thin">{{
             $t('ssAction.loveIt')
           }}</span></ion-button
         >
-        <!-- <ion-popover
+        <ion-popover
           side="top"
           alignment="center"
           :is-open="popoverOpen"
           :event="event"
-          @didDismiss="popoverOpen = false"
-        > -->
-        <ion-popover
+          @didDismiss="closePopover"
+        >
+          <!-- <ion-popover
           side="top"
           alignment="center"
           :trigger="likeContextId"
           trigger-action="context-menu"
           :dismiss-on-select="true"
-        >
-          <transition
-            appear
-            enter-active-class="animate__animated animate__fadeInLeft"
-          >
-            <ion-content :scroll-y="false">
-              <ion-row
-                class="ion-justify-content-around ion-align-items-center"
+        > -->
+
+          <ion-content :scroll-y="false">
+            <ion-row class="ion-justify-content-around ion-align-items-center">
+              <ion-col
+                size="3"
+                class="ion-text-center ion-activatable ripple-parent text-pink"
+                @click="onLiked('LOVE_IT')"
+                ><transition
+                  appear
+                  enter-active-class="animate__animated animate__heartBeat"
+                >
+                  <div v-if="loveBtnShow">
+                    <ion-icon :icon="heart"></ion-icon>
+                    <span style="display: block" class="wee-text-caption">{{
+                      $t('ssAction.loveIt')
+                    }}</span>
+                  </div>
+                </transition>
+                <ion-ripple-effect></ion-ripple-effect>
+              </ion-col>
+
+              <ion-col
+                size="3"
+                class="ion-text-center ion-activatable ripple-parent text-amber-8"
+                @click="onLiked('PRIZE_IT')"
               >
-                <ion-col
-                  size="3"
-                  class="ion-text-center ion-activatable ripple-parent text-pink"
-                  @click="onLiked('LOVE_IT')"
+                <transition
+                  appear
+                  enter-active-class="animate__animated animate__heartBeat"
                 >
-                  <ion-icon :icon="heart"></ion-icon>
-                  <span style="display: block" class="wee-text-caption">{{
-                    $t('ssAction.loveIt')
-                  }}</span>
-                  <ion-ripple-effect></ion-ripple-effect>
-                </ion-col>
-                <ion-col
-                  size="3"
-                  class="ion-text-center ion-activatable ripple-parent text-amber-8"
-                  @click="onLiked('PRIZE_IT')"
+                  <div v-if="giftBtnShow">
+                    <ion-icon :icon="gift"></ion-icon>
+                    <span style="display: block" class="wee-text-caption">{{
+                      $t('ssAction.prizeIt')
+                    }}</span>
+                  </div>
+                </transition>
+                <ion-ripple-effect></ion-ripple-effect>
+              </ion-col>
+
+              <ion-col
+                size="3"
+                class="ion-text-center ion-activatable ripple-parent text-green"
+                @click="onLiked('ADOPT_IT')"
+              >
+                <transition
+                  appear
+                  enter-active-class="animate__animated animate__heartBeat"
                 >
-                  <ion-icon :icon="gift"></ion-icon>
-                  <span style="display: block" class="wee-text-caption">{{
-                    $t('ssAction.prizeIt')
-                  }}</span>
-                  <ion-ripple-effect></ion-ripple-effect>
-                </ion-col>
-                <ion-col
-                  size="3"
-                  class="ion-text-center ion-activatable ripple-parent text-green"
-                  @click="onLiked('ADOPT_IT')"
+                  <div v-if="adoptBtnShow">
+                    <ion-icon :icon="bagHandle"></ion-icon>
+                    <span style="display: block" class="wee-text-caption">{{
+                      $t('ssAction.adoptIt')
+                    }}</span>
+                  </div>
+                </transition>
+                <ion-ripple-effect></ion-ripple-effect>
+              </ion-col>
+
+              <ion-col
+                size="3"
+                class="ion-text-center ion-activatable ripple-parent text-blue"
+                @click="onLiked('ACTION_IT')"
+              >
+                <transition
+                  appear
+                  enter-active-class="animate__animated animate__heartBeat"
                 >
-                  <ion-icon :icon="bagHandle"></ion-icon>
-                  <span style="display: block" class="wee-text-caption">{{
-                    $t('ssAction.adoptIt')
-                  }}</span>
-                  <ion-ripple-effect></ion-ripple-effect>
-                </ion-col>
-                <ion-col
-                  size="3"
-                  class="ion-text-center ion-activatable ripple-parent text-blue"
-                  @click="onLiked('ACTION_IT')"
-                >
-                  <base-icon
-                    :icon="biHandIndexThumbFill"
-                    color="text-blue"
-                    :size="23"
-                  />
-                  <span style="display: block" class="wee-text-caption">{{
-                    $t('ssAction.actionIt')
-                  }}</span>
-                  <ion-ripple-effect></ion-ripple-effect>
-                </ion-col>
-              </ion-row>
-            </ion-content>
-          </transition>
+                  <div v-if="actionBtnShow">
+                    <base-icon
+                      :icon="biHandIndexThumbFill"
+                      color="text-blue"
+                      :size="23"
+                    />
+                    <span style="display: block" class="wee-text-caption">{{
+                      $t('ssAction.actionIt')
+                    }}</span>
+                  </div>
+                </transition>
+                <ion-ripple-effect></ion-ripple-effect>
+              </ion-col>
+            </ion-row>
+          </ion-content>
         </ion-popover>
 
         <ion-button
@@ -107,17 +131,19 @@
             appear
             enter-active-class="animate__animated animate__heartBeat"
           >
-            <ion-icon
+            <!-- <ion-icon
               v-if="actionType != 'ACTION_IT'"
               :class="actionColor"
               slot="start"
               :icon="actionIcon"
-            ></ion-icon>
+            ></ion-icon> -->
             <base-icon
-              v-else
               class="q-mr-xs"
-              :icon="biHandIndexThumbFill"
-              color="text-blue"
+              :icon="
+                actionType != 'ACTION_IT' ? actionIcon : biHandIndexThumbFill
+              "
+              :color="actionType != 'ACTION_IT' ? actionColor : 'text-blue'"
+              :icon-set="actionType != 'ACTION_IT' ? 'ion' : 'bootstrap-icons'"
               :size="23"
             />
           </transition>
@@ -183,6 +209,7 @@ const props = defineProps({
 });
 const { WeeGoTo } = useBase();
 const hoverTimeOut = ref<any>();
+const showBtnTimeOut = ref<any>();
 const actionType = ref<PostActionType>();
 onMounted(() => {
   actionType.value = props.action;
@@ -192,16 +219,39 @@ onBeforeUnmount(() => {
     clearTimeout(hoverTimeOut.value);
     hoverTimeOut.value = null;
   }
+  if (showBtnTimeOut.value) {
+    clearTimeout(showBtnTimeOut.value);
+    showBtnTimeOut.value = null;
+  }
 });
 const popoverOpen = ref(false);
 const event = ref<Event>();
+const loveBtnShow = ref(false);
+const giftBtnShow = ref(false);
+const adoptBtnShow = ref(false);
+const actionBtnShow = ref(false);
 const openPopover = (e: Event) => {
   event.value = e;
   popoverOpen.value = true;
+
+  loveBtnShow.value = true;
+  showBtnTimeOut.value = setTimeout(() => {
+    giftBtnShow.value = true;
+  }, 100);
+  showBtnTimeOut.value = setTimeout(() => {
+    adoptBtnShow.value = true;
+  }, 200);
+  showBtnTimeOut.value = setTimeout(() => {
+    actionBtnShow.value = true;
+  }, 300);
 };
 const closePopover = () => {
   event.value = undefined;
   popoverOpen.value = false;
+  loveBtnShow.value = false;
+  giftBtnShow.value = false;
+  adoptBtnShow.value = false;
+  actionBtnShow.value = false;
 };
 const onLiked = (like: PostActionType) => {
   console.log('onLiked', like);

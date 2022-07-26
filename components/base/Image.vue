@@ -88,14 +88,9 @@ const onError = () => {
   error.value = true;
 };
 const onImgDidLoad = () => {
-  console.log('onImgDidLoad > ' + props.src);
-  // contentTimeOut.value = setTimeout(() => {
   completed.value = true;
-  // }, 100);
 };
-const onImgWillLoad = () => {
-  console.log('onImgWillLoad');
-};
+const onImgWillLoad = () => {};
 const imgRatio = computed(() =>
   props.ratio == '1' ? '100' : props.ratio == '4/3' ? '75' : '56.25'
 );

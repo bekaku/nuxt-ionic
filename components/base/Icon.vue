@@ -1,27 +1,33 @@
 <template>
-  <svg
-    v-if="!ionicIcon"
-    xmlns="http://www.w3.org/2000/svg"
-    :width="size"
-    :height="size"
-    fill="currentColor"
-    viewBox="0 0 16 16"
-    :class="color"
-  >
-    <path :d="icon.replace('|0 0 16 16', '')" />
-  </svg>
-  <ion-icon
-    v-else
-    :class="color"
-    :icon="icon"
-    :style="{ fontSize: size + 'px' }"
-  />
+  <template v-if="ionicIcon || iconSet == 'ion'">
+    <ion-icon :class="color" :icon="icon" :style="{ fontSize: size + 'px' }" />
+  </template>
+  <template v-else>
+    <svg
+      v-if="!ionicIcon"
+      xmlns="http://www.w3.org/2000/svg"
+      :width="size"
+      :height="size"
+      fill="currentColor"
+      :viewBox="getViewBox"
+      :class="color"
+    >
+      <path :d="getIcon" />
+    </svg>
+  </template>
 </template>
 <script setup lang="ts">
-defineProps({
+import { PropType } from 'vue';
+const props = defineProps({
   icon: {
     type: String,
     default: '',
+  },
+  iconSet: {
+    type: String as PropType<
+      'bootstrap-icons' | 'line-awesome' | 'ion' | 'material-icons'
+    >,
+    default: 'bootstrap-icons',
   },
   ionicIcon: {
     type: Boolean,
@@ -35,5 +41,27 @@ defineProps({
     type: String,
     default: 'text-primary', //#2196f3
   },
+});
+const getIcon = computed(() => {
+  if (props.iconSet == 'bootstrap-icons') {
+    return props.icon.replace('|0 0 16 16', '');
+  } else if (props.iconSet == 'line-awesome') {
+    return props.icon.replace('|0 0 32 32', '');
+  } else if (props.iconSet == 'material-icons') {
+    return props.icon.replace('M0 0 H24 V24 H0 V0 z@@fill:none;&&', '');
+  } else {
+    return props.icon;
+  }
+});
+const getViewBox = computed(() => {
+  if (props.iconSet == 'bootstrap-icons') {
+    return '0 0 16 16';
+  } else if (props.iconSet == 'line-awesome') {
+    return '0 0 32 32';
+  } else if (props.iconSet == 'material-icons') {
+    return '0 0 24 24';
+  } else {
+    return props.icon;
+  }
 });
 </script>

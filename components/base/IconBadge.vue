@@ -33,9 +33,13 @@ defineProps({
 <style scoped>
 ion-badge {
   position: absolute;
-  font-size: 8pt;
-  right: -10px;
+  font-size: 11px;
+  right: -1px;
   top: 1px;
+  --padding-bottom: 3px;
+  --padding-end: 3px;
+  --padding-start: 3px;
+  --padding-top: 3px;
 }
 
 ion-button {

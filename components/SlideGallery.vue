@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import { PropType } from 'vue';
 import { ImageDto } from '@/types/models';
-import { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
+import { Autoplay, Keyboard, Scrollbar, Zoom } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -53,10 +53,5 @@ const props = defineProps({
     default: 0,
   },
 });
-const slideOpts = {
-  initialSlide: props.selectedIndex,
-  speed: 400,
-  preloadImages: true,
-};
-const modules = [Autoplay, Keyboard, Pagination, Scrollbar, Zoom];
+const modules = [Autoplay, Keyboard, Scrollbar, Zoom];
 </script>

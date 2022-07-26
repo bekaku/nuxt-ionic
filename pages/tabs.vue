@@ -4,8 +4,8 @@ import { TabsName } from '@/utils/constant';
 import {
   homeOutline,
   home,
-  chatbubbleOutline,
-  chatbubble,
+  chatbubbleEllipsesOutline,
+  chatbubbleEllipses,
   ellipsisHorizontal,
   addCircleOutline,
   pieChartOutline,
@@ -67,8 +67,8 @@ const onOpenPost = () => {
           <ion-icon
             :icon="
               TabsName.CHAT === tabStore.currentTab
-                ? chatbubble
-                : chatbubbleOutline
+                ? chatbubbleEllipses
+                : chatbubbleEllipsesOutline
             "
           />
           <ion-label>{{ $t('nav.chats') }}</ion-label>

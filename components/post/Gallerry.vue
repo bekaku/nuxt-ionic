@@ -9,7 +9,7 @@
         <!-- <ion-img @click="onOpenGallery(index)" :src="item.image"></ion-img> -->
         <!-- <ion-img @click="WeeGoTo('/post/gallerry')" :src="item.image"></ion-img> -->
         <base-image
-          @click="WeeGoTo('/post/gallerry')"
+          @click="onOpenGallery(index)"
           :src="item.image"
           ratio="4/3"
         />
@@ -24,18 +24,25 @@
       </ion-col></template
     ></ion-row
   >
-  <!-- <base-dialog
+  <base-dialog
     :model-value="dialogGallery"
     @on-close="dialogGallery = false"
     :content-padding="false"
     dark
+    title="Photos"
   >
+    <template #avatar>
+      <ion-avatar style="width: 32px; height: 32px">
+        <ion-img :src="AvatarPlaceHolder128" />
+      </ion-avatar>
+    </template>
     <slide-gallery :items="items" :selected-index="dialogGalleryIndex" />
-  </base-dialog> -->
+  </base-dialog>
 </template>
 <script setup lang="ts">
 import { PropType, computed } from 'vue';
 import { ImageDto } from '@/types/models';
+import { AvatarPlaceHolder128 } from '@/utils/constant';
 const props = defineProps({
   items: {
     type: Array as PropType<ImageDto[]>,

@@ -37,18 +37,20 @@
             </slot>
             <slot name="title">
               <ion-title
+                v-if="pageTitle"
                 :size="titleSize"
                 :style="{ fontWeight: pageTitleBold ? 'bold' : 'normal' }"
                 >{{ pageTitle }}</ion-title
               >
             </slot>
-            <slot name="end">
-              <div slot="end">
+
+            <div slot="end">
+              <slot name="end">
                 <ion-buttons>
                   <slot name="actions-end"></slot>
                 </ion-buttons>
-              </div>
-            </slot>
+              </slot>
+            </div>
           </ion-toolbar>
         </slot>
       </ion-header>

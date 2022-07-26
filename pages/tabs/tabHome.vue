@@ -1,46 +1,40 @@
 <template>
   <base-layout
-    :page-title="$t('base.home')"
     fullscreen
     :show-back-link="false"
     :content-padding="false"
     :avatar="AvatarPlaceHolder128"
-    hide-header-on-scroll
+    :hide-header-on-scroll="true"
     avatar-width="32"
-    translucent
   >
-    <template #avatar>
-      <ion-avatar
-        class="q-relative-position"
-        style="width: 32px; height: 32px; top: 7px"
-      >
-        <ion-img :src="AvatarPlaceHolder128" />
-      </ion-avatar>
+    <template #start>
+      <ion-row class="ion-justify-content-start">
+        <ion-avatar style="width: 32px; height: 32px">
+          <ion-img :src="AvatarPlaceHolder128" />
+        </ion-avatar>
+        <base-icon
+          :icon="matMilitaryTech"
+          :size="32"
+          icon-set="material-icons"
+          color="text-amber-8"
+        />
+      </ion-row>
     </template>
 
-    <!-- <template #title>
-      <ion-title>
-        <ion-searchbar
-          @ion-focus="WeeGoTo('/search')"
-          class="q-absolute"
-          style="top: 5px"
-          placeholder="Synapse search"
-          show-cancel-button="never"
-        ></ion-searchbar>
-      </ion-title>
-    </template> -->
-
-    <template v-slot:actions-end>
-      <base-icon-badge
-        to="/notifications"
-        text-color="dark"
-        :icon="notificationsOutline"
-        no="99"
-      />
-      <ion-button color="dark" router-link="/search">
-        <ion-icon slot="icon-only" :icon="searchOutline"></ion-icon>
-      </ion-button>
+    <template #end>
+      <ion-buttons>
+        <base-icon-badge
+          to="/notifications"
+          text-color="dark"
+          :icon="notificationsOutline"
+          no="99"
+        />
+        <ion-button color="dark" router-link="/search">
+          <ion-icon slot="icon-only" :icon="searchOutline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </template>
+
     <ion-refresher
       slot="fixed"
       :pull-factor="0.5"
@@ -54,10 +48,8 @@
     </ion-refresher>
     <div class="q-mt-md"></div>
 
-    <base-image
-      src="https://images.pexels.com/photos/12798416/pexels-photo-12798416.jpeg"
-      ratio="4/3"
-    />
+    <feed-statistic />
+
     <template v-for="(item, index) in posts" :key="index">
       <post-item
         :post="item"
@@ -81,7 +73,12 @@
   </base-layout>
 </template>
 <script setup lang="ts">
-import { searchOutline, notificationsOutline } from 'ionicons/icons';
+import {
+  searchOutline,
+  notificationsOutline,
+  arrowUpOutline,
+} from 'ionicons/icons';
+import { matMilitaryTech } from '@quasar/extras/material-icons';
 import { AvatarPlaceHolder128 } from '@/utils/constant';
 import { convertStringToDate } from '@/utils/dateUtil';
 import { PostData } from '@/types/models';

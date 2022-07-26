@@ -4,25 +4,32 @@
       <slot name="toolbar">
         <ion-toolbar :class="{ dark: dark }">
           <slot name="start">
-            <base-icon
-              v-if="icon"
-              slot="start"
-              :ionic-icon="ionicIcon"
-              :icon="icon"
-              :color="iconColor"
-              :size="24"
-            />
+            <slot name="start">
+              <slot name="avatar">
+                <base-icon
+                  v-if="icon"
+                  slot="start"
+                  :ionic-icon="ionicIcon"
+                  :icon="icon"
+                  :color="iconColor"
+                  :size="24"
+                />
+                <slot name="actions-start"> </slot>
+              </slot>
+            </slot>
           </slot>
           <slot name="title">
             <ion-title v-if="title">{{ title }}</ion-title>
           </slot>
-          <slot name="end">
-            <ion-buttons slot="end">
-              <ion-button @click="onClose"
-                ><ion-icon slot="icon-only" :icon="closeOutline"
-              /></ion-button>
-            </ion-buttons>
-          </slot>
+          <div slot="end">
+            <slot name="end">
+              <ion-buttons slot="end">
+                <ion-button @click="onClose"
+                  ><ion-icon slot="icon-only" :icon="closeOutline"
+                /></ion-button>
+              </ion-buttons>
+            </slot>
+          </div>
         </ion-toolbar>
       </slot>
     </ion-header>
