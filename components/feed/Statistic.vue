@@ -1,5 +1,5 @@
 <template>
-  <ion-slides :pager="false" :options="slideOpts">
+  <ion-slides :pager="true" :options="slideOpts">
     <ion-slide>
       <ion-card class="no-shadow">
         <ion-item>
@@ -14,7 +14,7 @@
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card>
+      <ion-card class="no-shadow">
         <ion-item>
           <ion-label>SLide 2</ion-label>
           <ion-button fill="outline" slot="end">View</ion-button>
@@ -27,7 +27,7 @@
       </ion-card>
     </ion-slide>
     <ion-slide>
-      <ion-card>
+      <ion-card class="no-shadow">
         <ion-item>
           <ion-label>SLide 3</ion-label>
           <ion-button fill="outline" slot="end">View</ion-button>
@@ -43,11 +43,11 @@
 </template>
 <script setup lang="ts">
 const slideOpts = {
-  initialSlide: 1,
+  initialSlide: 0,
   speed: 400,
   slidesPerView: 2,
   spaceBetween: 0,
   freeMode: true,
-  centeredSlides: true,
+  centeredSlides: false,
 };
 </script>

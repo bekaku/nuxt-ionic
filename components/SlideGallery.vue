@@ -13,12 +13,18 @@
   </ion-slides> -->
   <swiper
     class="q-absolute-center"
-    :modules="modules"
+    :modules="[Autoplay, Keyboard, Scrollbar, Zoom, Navigation]"
     :keyboard="true"
     :pagination="false"
+    :navigation="false"
     :scrollbar="true"
     :zoom="true"
     :initial-slide="selectedIndex"
+    :lazy="true"
+    :style="{
+      '--swiper-navigation-color': '#fff',
+      '--swiper-pagination-color': '#fff',
+    }"
   >
     <swiper-slide v-for="(item, index) in items" :key="index">
       <div class="swiper-zoom-container">
@@ -34,14 +40,16 @@
 <script setup lang="ts">
 import { PropType } from 'vue';
 import { ImageDto } from '@/types/models';
-import { Autoplay, Keyboard, Scrollbar, Zoom } from 'swiper';
+import { Autoplay, Keyboard, Scrollbar, Zoom, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'swiper/css/keyboard';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import 'swiper/css/zoom';
+import 'swiper/css/lazy';
 import '@ionic/vue/css/ionic-swiper.css';
 const props = defineProps({
   items: {
@@ -53,5 +61,4 @@ const props = defineProps({
     default: 0,
   },
 });
-const modules = [Autoplay, Keyboard, Scrollbar, Zoom];
 </script>

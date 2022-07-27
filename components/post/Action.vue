@@ -131,12 +131,6 @@
             appear
             enter-active-class="animate__animated animate__heartBeat"
           >
-            <!-- <ion-icon
-              v-if="actionType != 'ACTION_IT'"
-              :class="actionColor"
-              slot="start"
-              :icon="actionIcon"
-            ></ion-icon> -->
             <base-icon
               class="q-mr-xs"
               :icon="
@@ -211,6 +205,7 @@ const { WeeGoTo } = useBase();
 const hoverTimeOut = ref<any>();
 const showBtnTimeOut = ref<any>();
 const actionType = ref<PostActionType>();
+const showReacted = ref(false);
 onMounted(() => {
   actionType.value = props.action;
 });
@@ -233,25 +228,27 @@ const actionBtnShow = ref(false);
 const openPopover = (e: Event) => {
   event.value = e;
   popoverOpen.value = true;
-
-  loveBtnShow.value = true;
-  showBtnTimeOut.value = setTimeout(() => {
-    giftBtnShow.value = true;
-  }, 100);
-  showBtnTimeOut.value = setTimeout(() => {
-    adoptBtnShow.value = true;
-  }, 200);
-  showBtnTimeOut.value = setTimeout(() => {
-    actionBtnShow.value = true;
-  }, 300);
+  setShowHideBtn(true);
 };
-const closePopover = () => {
+const setShowHideBtn = (show: boolean) => {
+  return new Promise((resolve) => {
+    loveBtnShow.value = show;
+    showBtnTimeOut.value = setTimeout(() => {
+      giftBtnShow.value = show;
+    }, 50);
+    showBtnTimeOut.value = setTimeout(() => {
+      adoptBtnShow.value = show;
+    }, 100);
+    showBtnTimeOut.value = setTimeout(() => {
+      actionBtnShow.value = show;
+    }, 150);
+    resolve(true);
+  });
+};
+const closePopover = async () => {
+  await setShowHideBtn(false);
   event.value = undefined;
   popoverOpen.value = false;
-  loveBtnShow.value = false;
-  giftBtnShow.value = false;
-  adoptBtnShow.value = false;
-  actionBtnShow.value = false;
 };
 const onLiked = (like: PostActionType) => {
   console.log('onLiked', like);
