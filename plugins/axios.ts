@@ -17,6 +17,7 @@ export default defineNuxtPlugin(() => {
       'Accept-Apiclient': DefaultApiCLient,
       // 'Accept-Language': DefaultLocale,
     },
+    validateStatus: (status) => status <= 500, // Resolve only if the status code is less than 500
   });
   return {
     provide: {
