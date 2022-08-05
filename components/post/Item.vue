@@ -8,13 +8,13 @@
           <ion-img :src="AvatarPlaceHolder128" />
         </ion-avatar>
         <!-- <ion-label>
-          <h2 @click="WeeGoTo('/profile')" class="wee-text-weight-bold">
+          <h2 @click="WeeGoTo('/profile')" class="q-text-weight-bold">
             Chanavee Bekaku
           </h2>
           <p>{{ AppFormatDate(post.postDatetime, FORMAT_DATE12) }}</p>
         </ion-label> -->
         <ion-label>
-          <h2 @click="WeeGoTo('/profile')" class="wee-text-weight-bold">
+          <h2 @click="WeeGoTo('/profile')" class="q-text-weight-bold">
             Chanavee Bekaku
           </h2>
           <p>{{ AppFormatDate(post.postDatetime, FORMAT_DATE12) }}</p>

@@ -18,7 +18,7 @@
           @click="openPopover($event)"
         >
           <ion-icon slot="start" :icon="heartOutline"></ion-icon>
-          <span class="wee-text-smaller text-muted app-text-weight-thin">{{
+          <span class="q-text-smaller text-muted app-text-weight-thin">{{
             $t('ssAction.loveIt')
           }}</span></ion-button
         >
@@ -49,7 +49,7 @@
                 >
                   <div v-if="loveBtnShow">
                     <ion-icon :icon="heart"></ion-icon>
-                    <span style="display: block" class="wee-text-caption">{{
+                    <span style="display: block" class="q-text-caption">{{
                       $t('ssAction.loveIt')
                     }}</span>
                   </div>
@@ -68,7 +68,7 @@
                 >
                   <div v-if="giftBtnShow">
                     <ion-icon :icon="gift"></ion-icon>
-                    <span style="display: block" class="wee-text-caption">{{
+                    <span style="display: block" class="q-text-caption">{{
                       $t('ssAction.prizeIt')
                     }}</span>
                   </div>
@@ -87,7 +87,7 @@
                 >
                   <div v-if="adoptBtnShow">
                     <ion-icon :icon="bagHandle"></ion-icon>
-                    <span style="display: block" class="wee-text-caption">{{
+                    <span style="display: block" class="q-text-caption">{{
                       $t('ssAction.adoptIt')
                     }}</span>
                   </div>
@@ -110,7 +110,7 @@
                       color="text-blue"
                       :size="23"
                     />
-                    <span style="display: block" class="wee-text-caption">{{
+                    <span style="display: block" class="q-text-caption">{{
                       $t('ssAction.actionIt')
                     }}</span>
                   </div>
@@ -142,7 +142,7 @@
             />
           </transition>
           <span
-            class="wee-text-smaller app-text-weight-thin"
+            class="q-text-smaller app-text-weight-thin"
             :class="actionColor"
             >{{ actionText }}</span
           ></ion-button
@@ -155,7 +155,7 @@
           class="ion-text-capitalize"
           @click="WeeGoTo(`/post/${postId}`)"
           ><ion-icon slot="start" :icon="chatboxEllipsesOutline"></ion-icon
-          ><span class="wee-text-smaller text-muted">{{
+          ><span class="q-text-smaller text-muted">{{
             $t('ssAction.comment')
           }}</span></ion-button
         >
@@ -163,7 +163,7 @@
       <ion-col size="3" class="ion-text-center">
         <ion-button class="ion-text-capitalize" fill="clear" color="medium"
           ><ion-icon slot="start" :icon="returnUpForwardOutline"></ion-icon
-          ><span class="wee-text-smaller text-muted">{{
+          ><span class="q-text-smaller text-muted">{{
             $t('ssAction.shareIt')
           }}</span></ion-button
         >

@@ -128,6 +128,14 @@
           >
             <ion-label class="ion-text-capitalize">Animations</ion-label>
           </ion-item>
+          <ion-item
+            @click="WeeGoTo('/chart')"
+            button
+            :detail="false"
+            lines="none"
+          >
+            <ion-label class="ion-text-capitalize">Chart</ion-label>
+          </ion-item>
           <ion-item lines="none" @click="logout" :detail="true">
             <ion-icon :icon="logOutOutline" slot="start"></ion-icon>
             <ion-label>

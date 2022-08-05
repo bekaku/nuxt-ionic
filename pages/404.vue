@@ -9,13 +9,13 @@
       <ion-row class="ion-justify-content-center">
         <ion-col>
           <div class="ion-text-center on-text-wrap">
-            <h1 class="ion-padding-vertical wee-text-weight-bold">Error 404</h1>
+            <h1 class="ion-padding-vertical q-text-weight-bold">Error 404</h1>
             <img
               class="ion-padding-vertical"
               src="~assets/icons/sad-man.png"
               style="width: 50%"
             />
-            <ion-text class="wee-text-muted">
+            <ion-text class="q-text-muted">
               <p>
                 {{ $t('error.404') }}
               </p>

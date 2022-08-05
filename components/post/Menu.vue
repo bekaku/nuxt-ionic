@@ -30,7 +30,7 @@
           >
             <ion-icon :icon="item.icon" slot="start"></ion-icon>
             <ion-label>
-              <p class="wee-text-black">{{ $t(item.label) }}</p>
+              <p class="q-text-black">{{ $t(item.label) }}</p>
             </ion-label>
           </ion-item>
         </ion-list>

@@ -16,7 +16,7 @@
         <div
           v-if="index == limitImage - 1 && getMoreNumber > 0"
           @click="WeeGoTo('/post/gallerry')"
-          class="q-absolute-center wee-text-white q-fit"
+          class="q-absolute-center q-text-white q-fit"
           style="background-color: rgba(0, 0, 0, 0.5); top: 50%"
         >
           <div class="q-absolute-center">+{{ getMoreNumber }}</div>

@@ -21,6 +21,11 @@ export enum CrudListDataType {
 }
 // type
 export type SearchOperation = ':' | '>' | '>=' | '<' | '<=' | '=' | '!=';
+export type IconSetType =
+  | 'bootstrap-icons'
+  | 'line-awesome'
+  | 'ion'
+  | 'material-icons';
 export type IHttpStatus =
   | 'OK'
   | 'CREATED'

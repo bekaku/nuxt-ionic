@@ -3,7 +3,7 @@
     <ion-row class="ion-justify-content-center">
       <ion-col>
         <div class="ion-text-center on-text-wrap">
-          <h1 v-if="error" class="ion-padding-vertical wee-text-weight-bold">
+          <h1 v-if="error" class="ion-padding-vertical q-text-weight-bold">
             {{ $t('error.error') }}
           </h1>
           <template v-if="showImage">
@@ -27,7 +27,7 @@
             ></ion-icon>
           </template>
 
-          <p class="wee-text-muted">
+          <p class="q-text-muted">
             {{ text ? text : $t('error.dataNotfound') }}
           </p>
         </div>

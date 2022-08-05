@@ -6,12 +6,12 @@
         <span class="text-muted text-caption-smaller q-ml-xs"
           >{{ $t('userEngagement') }} 21.8k</span
         >
-        <!-- <span class="text-muted q-mx-xs wee-text-weight-thin">|</span>
+        <!-- <span class="text-muted q-mx-xs q-text-weight-thin">|</span>
         <base-link
           :label="`1.9k ${$t('views')}`"
           class="text-caption-smaller"
         />
-        <span class="text-muted q-mx-xs wee-text-weight-thin">|</span>
+        <span class="text-muted q-mx-xs q-text-weight-thin">|</span>
         <base-link :label="`9k Following post`" class="text-caption-smaller" /> -->
       </ion-col>
     </ion-row>
@@ -36,12 +36,12 @@
           <base-link
             @click="onOpenComment"
             :label="`9k ${$t('comments')}`"
-            class="wee-text-caption"
+            class="q-text-caption"
           />
           <base-link
             @click="onOpenSharer"
             :label="`1.9k ${$t('shares')}`"
-            class="wee-text-caption"
+            class="q-text-caption"
           />
         </div>
       </ion-col>

@@ -73,11 +73,7 @@
   </base-layout>
 </template>
 <script setup lang="ts">
-import {
-  searchOutline,
-  notificationsOutline,
-  arrowUpOutline,
-} from 'ionicons/icons';
+import { searchOutline, notificationsOutline } from 'ionicons/icons';
 import { matMilitaryTech } from '@quasar/extras/material-icons';
 import { AvatarPlaceHolder128 } from '@/utils/constant';
 import { convertStringToDate } from '@/utils/dateUtil';
@@ -92,8 +88,6 @@ const { callAxios } = useAxios();
 const { isAppPlatfrom } = useDevice();
 const { getConfig } = useConfig();
 const logDeviceInfo = async () => {
-  console.log('NODE_ENV', process.env.NODE_ENV);
-  console.log('getConfig > apiBase : ' + getConfig('apiBase'));
   console.log('isIOS : ' + isAppPlatfrom('ios'));
 };
 onMounted(() => {

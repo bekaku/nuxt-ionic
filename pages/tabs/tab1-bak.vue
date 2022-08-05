@@ -18,13 +18,13 @@
       </ion-button>
     </template>
 
-    <ion-card class="ion-no-margin" style="border-radius: 0;">
+    <ion-card class="ion-no-margin" style="border-radius: 0">
       <ion-item lines="none">
         <ion-avatar slot="start">
           <img :src="AvatarPlaceHolder128" alt="avatar" />
         </ion-avatar>
         <ion-label>
-          <h3 class="wee-text-weight-bold">Chanavee Bekaku</h3>
+          <h3 class="q-text-weight-bold">Chanavee Bekaku</h3>
           <p>5 april 2022, 11:30 AM</p>
         </ion-label>
       </ion-item>
@@ -37,9 +37,7 @@
         <ion-list lines="none">
           <ion-item>
             <ion-avatar slot="start">
-              <img
-                :src="AvatarPlaceHolder128"
-              />
+              <img :src="AvatarPlaceHolder128" />
             </ion-avatar>
             <ion-label>
               <h1>John Parks</h1>

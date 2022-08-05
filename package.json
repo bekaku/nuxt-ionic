@@ -38,6 +38,7 @@
     "@capacitor/status-bar": "4.0.1",
     "@quasar/extras": "^1.15.1",
     "animate.css": "^4.1.1",
+    "apexcharts": "^3.35.4",
     "axios": "^0.27.2",
     "date-fns": "^2.29.1",
     "swiper": "^8.3.2"

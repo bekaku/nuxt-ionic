@@ -11,6 +11,9 @@ import {
   pieChartOutline,
   pieChart,
 } from 'ionicons/icons';
+definePageMeta({
+  middleware: 'auth',
+});
 useHead({
   title: 'Super Synapse',
 });

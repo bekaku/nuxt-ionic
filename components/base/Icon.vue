@@ -18,15 +18,14 @@
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue';
+import { IconSetType } from '@/types/common';
 const props = defineProps({
   icon: {
     type: String,
     default: '',
   },
   iconSet: {
-    type: String as PropType<
-      'bootstrap-icons' | 'line-awesome' | 'ion' | 'material-icons'
-    >,
+    type: String as PropType<IconSetType>,
     default: 'bootstrap-icons',
   },
   ionicIcon: {
@@ -41,14 +40,24 @@ const props = defineProps({
     type: String,
     default: 'text-primary', //#2196f3
   },
+  additionalReplce: {
+    type: String,
+    default: '',
+  },
 });
 const getIcon = computed(() => {
   if (props.iconSet == 'bootstrap-icons') {
-    return props.icon.replace('|0 0 16 16', '');
+    return props.icon
+      .replace('|0 0 16 16', '')
+      .replace(props.additionalReplce, '');
   } else if (props.iconSet == 'line-awesome') {
-    return props.icon.replace('|0 0 32 32', '');
+    return props.icon
+      .replace('|0 0 32 32', '')
+      .replace(props.additionalReplce, '');
   } else if (props.iconSet == 'material-icons') {
-    return props.icon.replace('M0 0 H24 V24 H0 V0 z@@fill:none;&&', '');
+    return props.icon
+      .replace('M0 0 H24 V24 H0 V0 z@@fill:none;&&', '')
+      .replace(props.additionalReplce, '');
   } else {
     return props.icon;
   }
