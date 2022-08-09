@@ -1,5 +1,5 @@
 <template>
-  <div class="q-qa-sm">
+  <div>
     <div :id="chartId"></div>
   </div>
 </template>
@@ -77,7 +77,15 @@ const props = defineProps({
   },
   showDataLabels: {
     type: Boolean,
-    default: false,
+    default: true,
+  },
+  showDataLabelsName: {
+    type: Boolean,
+    default: true,
+  },
+  showDataLabelsValue: {
+    type: Boolean,
+    default: true,
   },
   labelRotate: {
     type: Number,
@@ -110,6 +118,10 @@ const props = defineProps({
   hollowBg: {
     type: Boolean,
     default: true,
+  },
+  hollowSize: {
+    type: String,
+    default: '55%',
   },
   trackBackgroud: {
     type: String,
@@ -157,7 +169,7 @@ const chartSetup = () => {
         // sparkline: {
         //   enabled: props.sparkline || props.semi,
         // },
-        offsetY: props.semi ? -20 : 0,
+        // offsetY: props.semi ? -20 : 0,
       },
       theme: {
         mode: props.mode,
@@ -170,7 +182,7 @@ const chartSetup = () => {
           endAngle: props.endAngle,
           hollow: {
             margin: 0,
-            size: '55%',
+            size: props.hollowSize,
             background:
               props.dark || !props.hollowBg || props.semi
                 ? 'transparent'
@@ -198,20 +210,21 @@ const chartSetup = () => {
           },
 
           dataLabels: {
+            show: props.showDataLabels,
             name: {
               offsetY: props.semi ? -30 : 0,
-              show: true,
+              show: props.showDataLabelsName,
               color: props.dark ? '#fff' : '#8E8E93',
               fontSize: '14px',
             },
             value: {
+              show: props.showDataLabelsValue,
               offsetY: props.semi ? -20 : 5,
               formatter: function (val: any) {
                 return parseInt(val);
               },
               color: props.dark ? '#fff' : '#8E8E93',
               fontSize: '18px',
-              show: true,
             },
           },
         },
@@ -219,7 +232,8 @@ const chartSetup = () => {
       colors:
         props.colors && props.colors.length > 0 ? props.colors : undefined,
       stroke: {
-        lineCap: props.semi ? 'butt' : props.stokeLineCap,
+        // lineCap: props.semi ? 'butt' : props.stokeLineCap,
+        lineCap: props.stokeLineCap,
       },
       fill: {
         type: 'gradient', //fill, gradient
@@ -257,9 +271,6 @@ const chartSetup = () => {
             return val;
           },
         },
-      },
-      dataLabels: {
-        enabled: props.showDataLabels,
       },
       responsive: [
         // {

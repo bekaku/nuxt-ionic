@@ -51,7 +51,10 @@ export const SearchOperation = {
   EQUA: '=',
   NOT_EQUA: '!=',
 };
-export const AvatarPlaceHolder128 = 'https://i.pravatar.cc/128';
+export const randomNo = (min: number, max: number) =>
+  Math.floor(Math.random() * max) + min;
+export const AvatarPlaceHolder128 =
+  'https://i.pravatar.cc/128?img=' + randomNo(1, 70);
 export const FeedSectionWidth = 280;
 export const TabsName = {
   HOME: 'tabHome',

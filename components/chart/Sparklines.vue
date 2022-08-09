@@ -98,6 +98,8 @@ onUnmounted(() => {
 onMounted(() => {
   chartSetup();
 });
+const getCateByIndex = (index: number) =>
+  props.categories.length > 0 ? props.categories[index] : '';
 const chartSetup = () => {
   if (props.series.length > 0) {
     const options = {
@@ -126,9 +128,8 @@ const chartSetup = () => {
       plotOptions: {},
       colors:
         props.colors && props.colors.length > 0 ? props.colors : undefined,
-      categories: props.categories,
       stroke: {
-        width: props.type == 'bar' ? 0 : 2.5,
+        width: props.type == 'bar' ? 0 : 1.5,
         curve: props.strokestyle,
       },
       fill: {
@@ -147,15 +148,18 @@ const chartSetup = () => {
           enabled: false,
         },
         x: {
-          show: false,
+          show: true,
+          formatter: function (value: any, options: any) {
+            return getCateByIndex(options.dataPointIndex);
+          },
         },
-        // y: {
-        //   title: {
-        //     formatter: function (seriesName: any) {
-        //       return '';
-        //     },
-        //   },
-        // },
+        y: {
+          title: {
+            formatter: function (seriesName: any) {
+              return seriesName;
+            },
+          },
+        },
         marker: {
           show: false,
         },

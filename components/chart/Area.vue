@@ -128,9 +128,21 @@ const props = defineProps({
     type: String as PropType<Strokestyle>,
     default: 'smooth', //smooth, straight, stepline
   },
+  strokeWidth: {
+    type: Number,
+    default: 1,
+  },
   sparkline: {
     type: Boolean,
     default: false,
+  },
+  annotationsYaxis: {
+    type: Array,
+    default: () => [],
+  },
+  annotationsXaxis: {
+    type: Array,
+    default: () => [],
   },
 });
 const series = ref(props.series);
@@ -195,8 +207,12 @@ const chartSetup = () => {
         show: props.yaxisShow,
         tickAmount: props.yaxisTickamount,
       },
+      annotations: {
+        yaxis: props.annotationsYaxis,
+        xaxis: props.annotationsXaxis,
+      },
       stroke: {
-        width: 1,
+        width: props.strokeWidth,
         curve: props.strokestyle,
       },
       fill: {
@@ -216,11 +232,11 @@ const chartSetup = () => {
         },
       },
       grid: {
-        borderColor: props.dark ? '#353537' : '#e9ebec', //transparent
-        row: {
-          colors: [props.dark ? '#353537' : '#e9ebec', 'transparent'], // takes an array which will be repeated on columns
-          opacity: 0.2,
-        },
+        borderColor: props.dark ? '#282829' : '#f0f0f0', //transparent
+        // row: {
+        //   colors: [props.dark ? '#353537' : '#e9ebec', 'transparent'], // takes an array which will be repeated on columns
+        //   opacity: 0.2,
+        // },
       },
       tooltip: {
         y: {
