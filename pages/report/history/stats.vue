@@ -24,20 +24,38 @@
         </ion-segment>
       </div>
 
+      <chart-radar
+        class="q-my-sm"
+        chart-id="report-history-stats-1"
+        type="radar"
+        height="350"
+        :series="seriesDE"
+        :colors="['#2dd36f', '#FF9F43']"
+        :categories="categories"
+      />
+
       <chart-column
         class="q-my-sm"
-        chart-id="report-history-stats"
+        chart-id="report-history-stats-2"
         height="350"
-        type="line"
-        :colors="['#23D160', '#795548', '#FF3860', '#3f51b5', '#FF9F43']"
+        type="bar"
+        palette="palette3"
         :series="series"
         :categories="categories"
         strokestyle="smooth"
-        :xaxis-tickamount="5"
         :yaxis-show="false"
         :stroke-width="2"
-      >
-      </chart-column>
+        :label-rotate="-45"
+      />
+      <!-- <chart-radar
+        class="q-my-sm"
+        chart-id="report-history-stats-2"
+        type="radar"
+        height="350"
+        :series="series"
+        :colors="['#23D160', '#795548', '#FF3860', '#3f51b5', '#FF9F43']"
+        :categories="categories"
+      /> -->
     </ion-card>
   </base-layout>
 </template>
@@ -68,6 +86,8 @@ const series = ref([
     name: 'D-Give',
     data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
   },
+]);
+const seriesDE = ref([
   {
     name: 'DE1',
     data: [2.5, 3, 1.5, 3.8, 4, 2.0, 3.6, 1.1, 1.3],

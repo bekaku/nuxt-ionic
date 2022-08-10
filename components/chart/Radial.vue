@@ -79,6 +79,14 @@ const props = defineProps({
     type: Boolean,
     default: true,
   },
+  dataLabelsSize: {
+    type: String,
+    default: '14px',
+  },
+  dataValueSize: {
+    type: String,
+    default: '18px',
+  },
   showDataLabelsName: {
     type: Boolean,
     default: true,
@@ -102,6 +110,10 @@ const props = defineProps({
   stokeLineCap: {
     type: String as PropType<'round' | 'square' | 'butt'>,
     default: 'round', //round, square, butt
+  },
+  fillType: {
+    type: String as PropType<'fill' | 'gradient'>,
+    default: 'gradient',
   },
   categories: {
     type: Array,
@@ -214,8 +226,9 @@ const chartSetup = () => {
             name: {
               offsetY: props.semi ? -30 : 0,
               show: props.showDataLabelsName,
-              color: props.dark ? '#fff' : '#8E8E93',
-              fontSize: '14px',
+              color: props.dark ? '#fff' : '#000',
+              fontSize: props.dataLabelsSize,
+              fontWeight: 400,
             },
             value: {
               show: props.showDataLabelsValue,
@@ -223,8 +236,8 @@ const chartSetup = () => {
               formatter: function (val: any) {
                 return parseInt(val);
               },
-              color: props.dark ? '#fff' : '#8E8E93',
-              fontSize: '18px',
+              color: props.dark ? '#fff' : '#000',
+              fontSize: props.dataValueSize,
             },
           },
         },
@@ -236,7 +249,7 @@ const chartSetup = () => {
         lineCap: props.stokeLineCap,
       },
       fill: {
-        type: 'gradient', //fill, gradient
+        type: props.fillType, //fill, gradient
         gradient: {
           shade: 'light',
           type: 'horizontal',
@@ -263,6 +276,14 @@ const chartSetup = () => {
         labels: {
           colors: '#8E8E93',
           useSeriesColors: props.legendUseSeriesColors,
+        },
+      },
+      grid: {
+        padding: {
+          left: -15,
+          right: -15,
+          top: -15,
+          bottom: -15,
         },
       },
       tooltip: {

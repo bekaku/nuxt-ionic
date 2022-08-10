@@ -37,11 +37,59 @@
           :stroke-width="2"
         />
       </template>
+
+      <ion-grid>
+        <ion-row class="ion-justify-content-around ion-align-items-center">
+          <ion-col class="ion-text-center">
+            <div class="text-green q-text-cation">Max</div>
+            <div class="q-text-h5 q-text-weight-bold">78</div>
+            <div class="q-text-cation q-pa-sm text-muted">
+              <base-icon
+                :icon="caretUpOutline"
+                icon-set="ion"
+                color="text-green"
+                :size="20"
+              />
+              April
+            </div>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <div class="text-muted q-text-cation">Avarage</div>
+            <div class="q-text-h5 q-text-weight-bold">1.2k</div>
+            <div class="q-text-cation q-pa-sm text-muted">
+              <base-icon
+                :icon="podiumOutline"
+                icon-set="ion"
+                color="text-muted"
+                :size="20"
+              />
+            </div>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <div class="text-red q-text-cation">Min</div>
+            <div class="q-text-h5 q-text-weight-bold">7.5k</div>
+            <div class="q-text-cation q-pa-sm text-muted">
+              <base-icon
+                :icon="caretDownOutline"
+                icon-set="ion"
+                color="text-red"
+                :size="20"
+              />
+              October
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card>
   </base-layout>
 </template>
 <script setup lang="ts">
-import { ellipsisVertical } from 'ionicons/icons';
+import {
+  ellipsisVertical,
+  caretDownOutline,
+  caretUpOutline,
+  podiumOutline,
+} from 'ionicons/icons';
 const { getParamNumber } = useBase();
 const formularId = ref<number>(getParamNumber('fomular'));
 const year = ref<string>('2022');

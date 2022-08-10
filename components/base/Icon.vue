@@ -17,6 +17,14 @@
   </template>
 </template>
 <script setup lang="ts">
+/*
+<base-icon
+                  :icon="gift"
+                  icon-set="ion"
+                  color="text-primary"
+                  :size="24"
+                />
+ */
 import { PropType } from 'vue';
 import { IconSetType } from '@/types/common';
 const props = defineProps({
