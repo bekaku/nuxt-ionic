@@ -105,7 +105,7 @@
               :categories="categoriesDialogue"
               strokestyle="smooth"
               :stroke-width="1"
-              :label-rotate="-90"
+              :label-rotate="-45"
             >
             </chart-column>
           </ion-col>
