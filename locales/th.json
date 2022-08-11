@@ -759,6 +759,8 @@
   "posts": "โพสต์",
   "prize": "รางวัล",
   "prizes": "รางวัล",
+  "prizeGet": "ได้รางวัล",
+  "prizeGive": "ให้รางวัล",
   "userEngagement": "ผู้ใช้มีส่วนร่วมโพสต์นี้",
   "dSologan": "วันนี้คุณทำ D แล้วหรือยัง?",
   "savedPost": "โพสต์ที่บันทึกไว้",
@@ -768,13 +770,14 @@
   "todayMostViewPosts": "โพสต์ที่มียอดวิวสูงสุดวันนี้",
   "ssAction": {
     "loveIt": "รักเลย",
-    "prizeIt": "ให้รางวัลเลย",
-    "adoptIt": "นำไปใช้เลย",
-    "actionIt": "สั่งการเลย",
-    "commentIt": "แสดงความเห็นเลย",
+    "prizeIt": "ให้รางวัล",
+    "adoptIt": "นำไปใช้",
+    "actionIt": "สั่งการ",
+    "commentIt": "แสดงความเห็น",
     "comment": "ความเห็น",
     "postIt": "โพสต์เลย",
-    "shareIt": "แชร์เลย"
+    "shareIt": "แชร์เลย",
+    "actionNow": "Action now"
   },
   "ssCode": {
     "eOwn": "E-Own",

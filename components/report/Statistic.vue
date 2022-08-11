@@ -1,9 +1,10 @@
 <template>
   <ion-card class="no-shadow ion-no-margin q-my-md">
+    <div class="q-text-h6 q-pa-sm">Total</div>
     <ion-grid>
       <ion-row class="ion-justify-content-around ion-align-items-center">
         <ion-col class="ion-text-center">
-          <div class="q-text-h5 q-text-weight-bold">78</div>
+          <div class="q-text-h6 q-text-weight-bold">78</div>
           <div class="q-text-cation q-pa-sm text-muted">
             <base-icon
               :icon="giftOutline"
@@ -11,11 +12,11 @@
               color="text-muted"
               :size="20"
             />
-            {{ $t('prizes') }}
+            {{ $t('prizeGet') }}
           </div>
         </ion-col>
         <ion-col class="ion-text-center">
-          <div class="q-text-h5 q-text-weight-bold">1.2k</div>
+          <div class="q-text-h6 q-text-weight-bold">1.2k</div>
           <div class="q-text-cation q-pa-sm text-muted">
             <base-icon
               :icon="biPencil"
@@ -27,7 +28,7 @@
           </div>
         </ion-col>
         <ion-col class="ion-text-center">
-          <div class="q-text-h5 q-text-weight-bold">7.5k</div>
+          <div class="q-text-h6 q-text-weight-bold">7.5k</div>
           <div class="q-text-cation q-pa-sm text-muted">
             <base-icon
               :icon="chatboxOutline"

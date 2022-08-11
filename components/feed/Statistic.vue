@@ -9,30 +9,28 @@
 
         <ion-row>
           <ion-col size="12" class="ion-no-padding ion-no-margin">
-            <ion-chip class="bg-red-1">
-              <ion-avatar>
-                <ion-icon :icon="caretDownOutline" class="text-red"></ion-icon>
-              </ion-avatar>
-              <ion-label
-                >DE1 <span class="text-red">3.5</span
-                ><span class="text-red text-caption-smaller q-ml-xs"
-                  >(-0.5)</span
-                ></ion-label
-              >
-            </ion-chip>
-
             <chart-radial
-              chart-id="g-chart-radial-e-own"
-              height="180"
+              :chart-id="'feed-individual-chart-watcher'"
+              height="120"
+              :series="[45]"
+              :categories="['E-own']"
+              :colors="['#ff8a06']"
+              :track-backgroud="'#fff8e1'"
+              :hollow-bg="false"
+              hollow-size="45"
+              stoke-line-cap="butt"
               semi
+              fill-type="fill"
               :start-angle="-90"
               :end-angle="90"
-              :series="[45]"
-              :categories="['E-Own']"
-              :colors="['#ff9800']"
+              data-labels-size="11"
               :show-legend="false"
               :show-data-labels="false"
+              :show-data-labels-name="true"
+              :show-data-labels-value="false"
             />
+            <div class="q-text-caption text-amber">E-Own</div>
+            <div class="q-text-h6 text-amber">1.1</div>
 
             <ion-button fill="outline" color="danger" size="small">
               <base-icon
@@ -61,30 +59,28 @@
 
         <ion-row>
           <ion-col size="12" class="ion-no-padding ion-no-margin">
-            <ion-chip class="bg-green-1">
-              <ion-avatar>
-                <ion-icon :icon="caretUpOutline" class="text-green"></ion-icon>
-              </ion-avatar>
-              <ion-label
-                >DE1 <span class="text-green">3.1</span
-                ><span class="text-green text-caption-smaller q-ml-xs"
-                  >(+0.5)</span
-                ></ion-label
-              >
-            </ion-chip>
             <chart-radial
-              chart-id="g-chart-radial-de1"
-              height="180"
-              semi
-              :start-angle="-90"
-              :end-angle="90"
+              :chart-id="'feed-team-chart-watcher'"
+              height="120"
               :series="[23]"
               :categories="['DE1']"
-              :colors="['#f44336']"
-              track-backgroud="#ffebee"
+              :colors="['#ff3860']"
+              :track-backgroud="'#ffebee'"
+              :hollow-bg="false"
+              hollow-size="45"
+              stoke-line-cap="butt"
+              semi
+              fill-type="fill"
+              :start-angle="-90"
+              :end-angle="90"
+              data-labels-size="11"
               :show-legend="false"
               :show-data-labels="false"
+              :show-data-labels-name="true"
+              :show-data-labels-value="false"
             />
+            <div class="q-text-caption text-danger">DE1</div>
+            <div class="q-text-h6 text-danger">1.0</div>
             <ion-button fill="outline" color="danger" size="small">
               <base-icon
                 :icon="biDot"
@@ -112,30 +108,28 @@
 
         <ion-row>
           <ion-col size="12" class="ion-no-padding ion-no-margin">
-            <ion-chip>
-              <ion-avatar>
-                <ion-icon :icon="removeOutline"></ion-icon>
-              </ion-avatar>
-              <ion-label
-                >DE1 <span>3.5</span
-                ><span class="text-caption-smaller q-ml-xs"
-                  >(-0.5)</span
-                ></ion-label
-              >
-            </ion-chip>
             <chart-radial
-              chart-id="g-chart-radial-de2"
-              height="180"
+              :chart-id="'feed-company-chart-watcher'"
+              height="120"
+              :series="[23]"
+              :categories="['D-Get']"
+              :colors="['#ff8a06']"
+              :track-backgroud="'#fff8e1'"
+              :hollow-bg="false"
+              hollow-size="45"
+              stoke-line-cap="butt"
               semi
+              fill-type="fill"
               :start-angle="-90"
               :end-angle="90"
-              :series="[50]"
-              :categories="['DE1']"
-              :colors="['#2196f3']"
-              track-backgroud="#e3f2fd"
+              data-labels-size="11"
               :show-legend="false"
               :show-data-labels="false"
+              :show-data-labels-name="true"
+              :show-data-labels-value="false"
             />
+            <div class="q-text-caption text-danger">D-Get</div>
+            <div class="q-text-h6 text-danger">99</div>
             <ion-button fill="outline" color="danger" size="small">
               <base-icon
                 :icon="biDot"
@@ -162,7 +156,7 @@ import {
 const slideOpts = {
   initialSlide: 0,
   speed: 400,
-  slidesPerView: 1.5,
+  slidesPerView: 2,
   spaceBetween: -10,
   freeMode: true,
   centeredSlides: false,

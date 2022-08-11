@@ -11,6 +11,7 @@
       </ion-button>
     </template>
 
+    <div class="q-text-h6 q-pa-sm">{{ type }}</div>
     <ion-card class="no-shadow ion-no-margin q-my-md">
       <div class="q-pa-sm">
         <div class="q-text-h6 q-pa-sm">Year</div>
@@ -61,6 +62,8 @@
 </template>
 <script setup lang="ts">
 import { ellipsisVertical } from 'ionicons/icons';
+const { getQuery } = useBase();
+const type = ref<string>(getQuery('type'));
 const year = ref<string>('2022');
 const categories = ref<string[]>([
   'Feb',

@@ -6,6 +6,10 @@
     show-back-link
   >
     <div class="q-text-h6 q-pa-sm">Software development</div>
+
+    <report-statistic />
+    <report-current-statistic type="team-member" />
+
     <ion-card class="no-shadow ion-no-margin q-my-md">
       <ion-grid>
         <ion-row>
@@ -243,6 +247,7 @@
       </div>
       <ion-list lines="none">
         <ion-item
+          button
           v-for="(item, index) in self30Days"
           :key="index"
           color="success"
@@ -259,44 +264,45 @@
             <p>Software Engineer</p>
           </ion-label>
           <div slot="end">
-            <base-icon :icon="biAward" color="text-yellow" :size="20" />
+            <base-icon :icon="biAwardFill" color="text-yellow" :size="20" />
           </div>
         </ion-item>
       </ion-list>
     </ion-card>
 
     <ion-card
-      class="no-shadow ion-no-margin q-my-md text-white"
+      class="no-shadow ion-no-margin q-my-md text-amber-10"
       color="warning"
     >
       <div class="q-text-h6 q-pa-sm">
         <base-icon
-          :icon="podium"
+          :icon="eyeOutline"
           icon-set="ion"
-          color="text-white"
+          color="text-amber-10"
           :size="20"
           class="q-mr-xs"
         />Top watcher
       </div>
       <ion-list lines="none">
         <ion-item
+          button
           v-for="(item, index) in self30Days"
           :key="index"
           color="warning"
         >
           <ion-avatar slot="start">
             <img
-              :src="`https://i.pravatar.cc/128?img=${index + 1}`"
+              :src="`https://i.pravatar.cc/128?img=${index + 7 + 1}`"
               alt="avatar"
             />
           </ion-avatar>
-          <ion-label class="text-white">
-            <h2 class="q-text-weight-bold">{{ item.name }}</h2>
-            <h3>Chanavee Bekaku</h3>
-            <p>Software Engineer</p>
+          <ion-label>
+            <h2 class="q-text-weight-bold text-amber-10">{{ item.name }}</h2>
+            <h3 class="text-amber-10">Chanavee Bekaku</h3>
+            <p class="text-amber-8">Software Engineer</p>
           </ion-label>
           <div slot="end">
-            <base-icon :icon="biAward" color="text-danger" :size="20" />
+            <base-icon :icon="biEmojiFrown" color="text-amber-10" :size="20" />
           </div>
         </ion-item>
       </ion-list>
@@ -304,14 +310,14 @@
   </base-layout>
 </template>
 <script setup lang="ts">
-import { podium } from 'ionicons/icons';
+import { podium, eyeOutline } from 'ionicons/icons';
 import {
   biPencil,
   biHash,
   biMagic,
-  biAward,
+  biAwardFill,
+  biEmojiFrown,
 } from '@quasar/extras/bootstrap-icons';
-import { AvatarPlaceHolder128 } from '@/utils/constant';
 
 const self30Days = ref([
   {

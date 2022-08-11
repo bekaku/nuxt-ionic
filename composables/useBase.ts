@@ -20,13 +20,16 @@ export const useBase = () => {
     history.pushState({}, '', url);
   };
   const WeeGoTo = (link: string, replace?: boolean): void => {
+    console.log('WeeGoTo', link);
     if (!link) {
       return;
     }
     if (!replace) {
-      router.push({ path: link });
+      // router.push({ path: link });
+      router.push(link);
     } else {
-      router.replace({ path: link });
+      // router.replace({ path: link });
+      router.replace(link);
     }
   };
   const getParam = (field: string): any => {

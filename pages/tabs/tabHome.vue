@@ -6,6 +6,7 @@
     :avatar="AvatarPlaceHolder128"
     :hide-header-on-scroll="true"
     avatar-width="32"
+    page-title="Sofware engineer"
   >
     <template #start>
       <ion-row class="ion-justify-content-start">

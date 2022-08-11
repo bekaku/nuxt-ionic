@@ -39,7 +39,7 @@
           <div class="text-muted text-caption">{{ item.name }}</div>
 
           <chart-sparklines
-            :chart-id="`g-chart-current-spark${index}`"
+            :chart-id="`${type}-g-chart-current-spark-${index}`"
             height="25"
             type="area"
             :colors="['#b0c7d4']"
@@ -50,7 +50,7 @@
           <ion-button
             fill="clear"
             size="small"
-            @click="WeeGoTo(`/report/history/${item.id}`)"
+            @click="WeeGoTo(`/report/fomular/${item.id}?type=${type}`)"
             >{{ $t('base.seeMore') }}</ion-button
           >
         </ion-col>
@@ -58,7 +58,7 @@
           <ion-button
             fill="clear"
             size="small"
-            @click="WeeGoTo(`/report/history/stats`)"
+            @click="WeeGoTo(`/report/full-stats?type=${type}`)"
             color="dark"
           >
             <ion-icon slot="start" :icon="returnUpForwardOutline"></ion-icon>
@@ -78,6 +78,12 @@ import {
   returnUpForwardOutline,
 } from 'ionicons/icons';
 defineProps({
+  type: {
+    type: String as PropType<
+      'individual' | 'team-leader' | 'team-member' | 'cpmpany'
+    >,
+    default: '',
+  },
   items: {
     type: Array as PropType<Hashtag[]>,
     default: () => [],

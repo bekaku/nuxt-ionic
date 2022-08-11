@@ -20,7 +20,7 @@
 
       <report-statistic />
 
-      <report-current-statistic />
+      <report-current-statistic type="individual" />
 
       <report-individual />
 
