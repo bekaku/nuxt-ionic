@@ -19,6 +19,7 @@
         :show-action-comment="false"
         :like-context-id="`page-post-context-menu-trigger-${post.id}`"
         :wrap-content-text="false"
+        show-action-share
       />
     </template>
   </base-layout>

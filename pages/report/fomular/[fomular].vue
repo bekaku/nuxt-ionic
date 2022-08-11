@@ -55,7 +55,7 @@
           </ion-col>
           <ion-col class="ion-text-center">
             <div class="text-muted q-text-cation">Avarage</div>
-            <div class="q-text-h5 q-text-weight-bold">1.2k</div>
+            <div class="q-text-h5 q-text-weight-bold">25</div>
             <div class="q-text-cation q-pa-sm text-muted">
               <base-icon
                 :icon="podiumOutline"
@@ -67,7 +67,7 @@
           </ion-col>
           <ion-col class="ion-text-center">
             <div class="text-red q-text-cation">Min</div>
-            <div class="q-text-h5 q-text-weight-bold">7.5k</div>
+            <div class="q-text-h5 q-text-weight-bold">7.5</div>
             <div class="q-text-cation q-pa-sm text-muted">
               <base-icon
                 :icon="caretDownOutline"

@@ -4,14 +4,20 @@
     :class="showMoreBtn && !showMoreText ? 'word-limit' : ''"
     v-html="urlify(content)"
   ></div>
-  <ion-button
+  <!-- <ion-button
     v-if="showMoreBtn && !showMoreText"
     fill="clear"
     color="primary"
     @click="showMoreText = true"
     class="ion-no-margin ion-no-padding ion-text-capitalize"
+  > -->
+  <ion-button
+    @click="WeeGoTo(`/post/${postId}`)"
+    fill="clear"
+    color="primary"
+    class="ion-no-margin ion-no-padding ion-text-capitalize"
   >
-    {{ '...' + t('base.seeMore') }}
+    {{ t('base.seeMore') }}
   </ion-button>
 </template>
 <script setup lang="ts">
@@ -30,6 +36,7 @@ const props = defineProps({
     default: true,
   },
 });
+const { WeeGoTo } = useBase();
 const { t } = useLang();
 const lineHeight = ref(0);
 const limitLines = ref(4);

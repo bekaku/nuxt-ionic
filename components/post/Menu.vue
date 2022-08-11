@@ -1,5 +1,19 @@
 <template>
-  <div>
+  <div class="q-gutter-x-xs">
+    <ion-button
+      shape="round"
+      fill="clear"
+      color="dark"
+      class="ion-no-margin ion-no-padding"
+    >
+      <base-icon
+        :icon="arrowRedoOutline"
+        slot="icon-only"
+        icon-set="ion"
+        color="text-muted"
+        :size="20"
+      />
+    </ion-button>
     <ion-button
       @click="openPopover($event)"
       shape="round"
@@ -10,7 +24,7 @@
       <ion-icon
         slot="icon-only"
         class="text-muted"
-        :icon="ellipsisVertical"
+        :icon="ellipsisVerticalOutline"
       ></ion-icon>
     </ion-button>
     <ion-popover
@@ -40,10 +54,11 @@
 </template>
 <script setup lang="ts">
 import {
-  ellipsisVertical,
+  ellipsisVerticalOutline,
   bookmarkOutline,
   linkOutline,
   flagOutline,
+  arrowRedoOutline,
 } from 'ionicons/icons';
 interface Menu {
   icon: string;

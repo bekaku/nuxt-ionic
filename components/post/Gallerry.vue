@@ -15,7 +15,7 @@
         />
         <div
           v-if="index == limitImage - 1 && getMoreNumber > 0"
-          @click="WeeGoTo('/post/gallerry')"
+          @click="WeeGoTo(`/post/gallerry/${postId}`)"
           class="q-absolute-center q-text-white q-fit"
           style="background-color: rgba(0, 0, 0, 0.5); top: 50%"
         >
@@ -47,6 +47,10 @@ const props = defineProps({
   items: {
     type: Array as PropType<ImageDto[]>,
     default: () => [],
+  },
+  postId: {
+    type: Number,
+    default: 0,
   },
 });
 const { WeeGoTo } = useBase();

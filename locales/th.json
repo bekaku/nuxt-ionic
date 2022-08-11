@@ -750,7 +750,7 @@
   "optionCountZeroError": "กรุณาเพิ่มตัวเลือกมากกว่า 1 ตัวเลือก",
   "questionCountZeroError": "กรุณาเพิ่มคำถามยังน้อย 1 ข้อ",
   "comment": "ความคิดเห็น",
-  "view": "View",
+  "view": "วิว",
   "views": "คนดู",
   "share": "แชร์",
   "comments": "ความคิดเห็น",
@@ -761,6 +761,9 @@
   "prizes": "รางวัล",
   "prizeGet": "ได้รางวัล",
   "prizeGive": "ให้รางวัล",
+  "readPost": "อ่านโพสต์",
+  "loveGet": "ได้ Love",
+  "loveGive": "ให้ Love",
   "userEngagement": "ผู้ใช้มีส่วนร่วมโพสต์นี้",
   "dSologan": "วันนี้คุณทำ D แล้วหรือยัง?",
   "savedPost": "โพสต์ที่บันทึกไว้",
@@ -789,5 +792,8 @@
   "reportPost": "รายงานโพสต์นี้",
   "myReport": "รีพอร์ต",
   "prizeRemain": "เหลือรางวัลอีก",
+  "got": "ได้",
+  "give": "ให้",
+  "read": "อ่าน",
   "prizeReciveFromText": "{0} ได้รับรางวัลจาก {1}"
 }

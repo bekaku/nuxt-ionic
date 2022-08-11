@@ -66,7 +66,10 @@
         >
         <ion-ripple-effect></ion-ripple-effect>
       </ion-col>
-      <ion-col class="ion-text-center ion-activatable ripple-parent q-py-xs">
+      <ion-col
+        v-if="showActionComment"
+        class="ion-text-center ion-activatable ripple-parent q-py-xs"
+      >
         <base-icon
           :icon="chatboxEllipsesOutline"
           icon-set="ion"
@@ -79,7 +82,10 @@
         }}</span>
         <ion-ripple-effect></ion-ripple-effect>
       </ion-col>
-      <ion-col class="ion-text-center ion-activatable ripple-parent q-py-xs">
+      <ion-col
+        v-if="showActionShare"
+        class="ion-text-center ion-activatable ripple-parent q-py-xs"
+      >
         <base-icon
           :icon="arrowRedoOutline"
           icon-set="ion"
@@ -136,6 +142,10 @@ const props = defineProps({
     default: '',
   },
   showActionComment: {
+    type: Boolean,
+    default: true,
+  },
+  showActionShare: {
     type: Boolean,
     default: true,
   },

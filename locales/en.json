@@ -750,6 +750,9 @@
   "posts": "Posts",
   "prize": "Prize",
   "prizes": "Prizes",
+  "readPost": "Read the post",
+  "loveGet": "Got Love",
+  "loveGive": "Give love",
   "userEngagement": "User engagement",
   "dSologan": "Have you done D today?",
   "savedPost": "Saved posts",
@@ -778,5 +781,8 @@
   "reportPost": "Report this post",
   "prizeRemain": "Prize remain",
   "prizeReciveFromText": "{0} received a reward from {1}",
-  "myReport": "Report"
+  "myReport": "Report",
+  "read": "Read",
+  "got": "Got",
+  "give": "Give"
 }

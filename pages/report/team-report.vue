@@ -5,7 +5,19 @@
     :content-padding="false"
     show-back-link
   >
-    <div class="q-text-h6 q-pa-sm">Software development</div>
+    <ion-item lines="none">
+      <div slot="start">
+        <base-icon
+          :icon="biDiagram2"
+          additional-replce="@@fill-rule:evenodd;"
+          :size="30"
+        />
+      </div>
+      <ion-label>
+        <h2>Software development</h2>
+        <p>Team</p>
+      </ion-label>
+    </ion-item>
 
     <report-statistic />
     <report-current-statistic type="team-member" />
@@ -317,6 +329,7 @@ import {
   biMagic,
   biAwardFill,
   biEmojiFrown,
+  biDiagram2,
 } from '@quasar/extras/bootstrap-icons';
 
 const self30Days = ref([
